@@ -47,5 +47,11 @@ public class BookingController {
         return new ResponseEntity<>(booking, HttpStatus.CREATED);
     }
 
+    @DeleteMapping(value="/bookings/{id}")
+    public ResponseEntity<Long> deleteBooking(@PathVariable Long id){
+        bookingRepository.deleteById(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
 
 }
