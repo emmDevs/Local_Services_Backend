@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -70,6 +71,9 @@ public class Service {
         this.description = description;
         this.price = price;
         this.duration = duration;
+        this.categories = new ArrayList<Category>();
+        this.slots = new ArrayList<Slot>();
+        this.bookings = new ArrayList<Booking>();
         this.shop = shop;
     }
 
@@ -144,4 +148,6 @@ public class Service {
     public void setShop(Shop shop) {
         this.shop = shop;
     }
+
+
 }
