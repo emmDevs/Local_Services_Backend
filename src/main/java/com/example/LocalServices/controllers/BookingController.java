@@ -41,7 +41,7 @@ public class BookingController {
         return new ResponseEntity(bookingRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value="/bookings")
+    @PostMapping("/bookings")
     public ResponseEntity<Booking> postBooking(@RequestBody Booking booking){
         bookingRepository.save(booking);
         return new ResponseEntity<>(booking, HttpStatus.CREATED);
