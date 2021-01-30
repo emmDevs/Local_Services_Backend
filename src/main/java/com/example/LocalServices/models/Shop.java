@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -83,6 +84,8 @@ public class Shop {
         this.telephone_number = telephone_number;
         this.email = email;
         this.image = image;
+        this.categories = new ArrayList<Category>();
+        this.services = new ArrayList<Service>();
     }
 
     public Long getId() {
