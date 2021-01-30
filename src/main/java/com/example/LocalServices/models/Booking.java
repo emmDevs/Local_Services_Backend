@@ -1,10 +1,13 @@
 package com.example.LocalServices.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="bookings")
@@ -34,23 +37,41 @@ public class Booking {
     @JsonIgnoreProperties({"bookings"})
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name="service_id", nullable = false)
+    @ManyToMany
     @JsonIgnoreProperties({"bookings"})
-    private Service service;
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "bookings_services",
+            joinColumns = {
+                    @JoinColumn(
+                            name = "booking_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "service_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            }
+    )
+    private List<Service> services;
+
 
     public Booking(){
 
     }
 
-    public Booking(Date date_booking_made, Date date_of_booking, Time arrival_time, Time departure_time, String comments, User user, Service service){
+    public Booking(Date date_booking_made, Date date_of_booking, Time arrival_time, Time departure_time, String comments, User user){
         this.date_booking_made = date_booking_made;
         this.date_of_booking = date_of_booking;
         this.arrival_time = arrival_time;
         this.departure_time = departure_time;
         this.comments = comments;
         this.user = user;
-        this.service = service;
+        this.services = new ArrayList<Service>();
     }
 
     public Long getId() {
@@ -109,13 +130,12 @@ public class Booking {
         this.user = user;
     }
 
-    public Service getService() {
-        return service;
+
+    public List<Service> getServices() {
+        return services;
     }
 
-    public void setService(Service service) {
-        this.service = service;
+    public void setServices(List<Service> services) {
+        this.services = services;
     }
-
-
 }
