@@ -4,7 +4,7 @@ function Footer() {
 
 
     return(
-        <h3>Footer</h3>
+        <h3>Footer Component</h3>
     )
 }
 

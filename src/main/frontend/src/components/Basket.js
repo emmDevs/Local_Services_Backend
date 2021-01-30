@@ -4,7 +4,7 @@ function Basket() {
 
 
     return(
-        <h3>Basket Page</h3>
+        <h3>Basket Component</h3>
     )
 }
 

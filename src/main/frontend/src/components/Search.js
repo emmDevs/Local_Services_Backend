@@ -4,7 +4,7 @@ function Search() {
 
 
     return(
-        <h3>Search inside Home page</h3>
+        <h3>Search Component</h3>
     )
 }
 
