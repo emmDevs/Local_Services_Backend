@@ -8,10 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.AntPathMatcher;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import sun.misc.Service;
@@ -43,4 +40,12 @@ public class BookingController {
     public ResponseEntity<Booking> getBooking(@PathVariable Long id){
         return new ResponseEntity(bookingRepository.findById(id), HttpStatus.OK);
     }
+
+    @PostMapping(value="/bookings")
+    public ResponseEntity<Booking> postBooking(@RequestBody Booking booking){
+        bookingRepository.save(booking);
+        return new ResponseEntity<>(booking, HttpStatus.CREATED);
+    }
+
+
 }
