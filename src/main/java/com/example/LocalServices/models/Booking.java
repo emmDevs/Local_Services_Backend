@@ -138,4 +138,8 @@ public class Booking {
     public void setServices(List<Service> services) {
         this.services = services;
     }
+
+    public void addService(Service service){
+        this.services.add(service);
+    }
 }
