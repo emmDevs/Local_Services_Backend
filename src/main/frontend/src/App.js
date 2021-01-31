@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect} from 'react';
 import {Route, Switch, BrowserRouter as Router} from 'react-router-dom';
 import NavBar from "./components/NavBar";
@@ -15,9 +16,11 @@ function App() {
   
 
   return (
-    <Router>        
-        <NavBar/>
-              
+    <div id="app">
+    <Router>
+        
+          <NavBar/>
+
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/search" component={Search}/>
@@ -28,6 +31,7 @@ function App() {
       </Switch>
       <Footer/> 
 	  </Router>
+    </div>
 
 
 

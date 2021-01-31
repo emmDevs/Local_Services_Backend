@@ -129,12 +129,12 @@ function NewShopForm({onFormSubmit}) {
                 value={town}
                 onChange={handleTownChange}/>
 
-                <input type="number"
+                <input type="time"
                 placeholder="Opening Hour"
                 value={openingHour}
                 onChange={handleOpeningHourChange}/>
 
-                <input type="number"
+                <input type="time"
                 placeholder="Closing Hour"
                 value={closingHour}
                 onChange={handleClosingHourChange}/>
@@ -149,7 +149,7 @@ function NewShopForm({onFormSubmit}) {
                 value={email}
                 onChange={handleEmailChange}/>
 
-                <input type="url"
+                <input type="text"
                 placeholder="Image"
                 value={image}
                 onChange={handleImageChange}/>
