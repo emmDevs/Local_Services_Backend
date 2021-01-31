@@ -50,6 +50,16 @@ public class CategoryController {
         categoryRepository.deleteById(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
-    
+
+    @PutMapping(value = "/categories/{id}")
+    public ResponseEntity<Category> updateCatagory(@RequestBody Category category, @PathVariable Long id){
+        Category categoryToUpdate = categoryRepository.findById(id).get();
+        categoryToUpdate.setName(category.getName());
+        categoryToUpdate.setDescription(category.getDescription());
+        categoryToUpdate.setImage(category.getImage());
+        categoryRepository.save(categoryToUpdate);
+        return new ResponseEntity<>(categoryToUpdate, HttpStatus.OK);
+    }
+
 
 }
