@@ -1,44 +1,38 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import NewShopForm from "./NewShopForm";
+import ShopDetails from "./ShopDetails";
 
 
 
 function Shop() {
 
-  const [shopProfileList, setShopProfileList] = useState([]);
-  const [shopProfile, setShopProfile] = useState([]);
+  const [shopProfile, setShopProfile] = useState({});
+  const [selectedShopId, setSelectedShopId] = useState({});
+  const [load, setLoad] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/shops/')
-      .then(res => res.json())
-      .then((data) => {
-        const promises = data.map((id))
-      });
-  })
+    getShopProfile();
+  }, [selectedShopId]);
 
-  // const ShopProfiles = () => {
-  //   const [shopProfile, setShopProfile] = useState([]);
-  
-  //   const fetchShopProfiles = () => {
-  //     axios.get('https://jsonplaceholder.typicode.com/users/')
-  //     .then(res => {
-  //       console.log(res);
-  //     });
-  //   }
-  
-  //   useEffect(() => {
-  //     fetchShopProfiles();
-  //   }, []);
-  
-  //   return <p>Fetch Test</p>
-  //   }
+  const getShopProfile = () => {
+    console.log("getting shop data");
+
+    fetch(`http://localhost:8080/shops/${selectedShopId}`)
+      .then(res => res.json())
+      .then(data => setShopProfile(data))
+      .then(() => setLoad(true))
+      
+  }
 
   return(
     <div>
         <h3>Shop Component</h3>
         <h4> Create New Profile or Log In</h4>
-        {/* <ShopProfiles /> */}
+        <ShopDetails 
+        shopProfile={shopProfile}
+        load={load}
+        />
         <NewShopForm />
     </div>
   )

@@ -30,10 +30,10 @@ public class Shop {
     private String town;
 
     @Column(name="opening_hour")
-    private Time opening_hour;
+    private String opening_hour;
 
     @Column(name="closing_hour")
-    private Time closing_hour;
+    private String closing_hour;
 
     @Column(name="telephone_number")
     private int telephone_number;
@@ -74,7 +74,7 @@ public class Shop {
 
     }
 
-    public Shop(String name, String address, String postcode, String town, Time opening_hour, Time closing_hour, int telephone_number, String email, String image){
+    public Shop(String name, String address, String postcode, String town, String opening_hour, String closing_hour, int telephone_number, String email, String image){
         this.name = name;
         this.address = address;
         this.postcode = postcode;
@@ -128,19 +128,19 @@ public class Shop {
         this.town = town;
     }
 
-    public Time getOpening_hour() {
+    public String getOpening_hour() {
         return opening_hour;
     }
 
-    public void setOpening_hour(Time opening_hour) {
+    public void setOpening_hour(String opening_hour) {
         this.opening_hour = opening_hour;
     }
 
-    public Time getClosing_hour() {
+    public String getClosing_hour() {
         return closing_hour;
     }
 
-    public void setClosing_hour(Time closing_hour) {
+    public void setClosing_hour(String closing_hour) {
         this.closing_hour = closing_hour;
     }
 
@@ -176,11 +176,19 @@ public class Shop {
         this.services = services;
     }
 
+    public void addService(Service service){
+        this.services.add(service);
+    }
+
     public List<Category> getCategories() {
         return categories;
     }
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public void addCategory(Category category){
+        this.categories.add(category);
     }
 }

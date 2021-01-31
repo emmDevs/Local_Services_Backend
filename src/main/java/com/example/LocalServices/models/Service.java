@@ -27,12 +27,12 @@ public class Service {
     @Column(name="duration")
     private int duration;
 
-    @OneToMany(mappedBy = "service")
-    @JsonIgnoreProperties({"service"})
+    @OneToMany(mappedBy = "services")
+    @JsonIgnoreProperties({"services"})
     private List<Booking> bookings;
 
     @ManyToMany
-    @JsonIgnoreProperties({"service"})
+    @JsonIgnoreProperties({"services"})
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
             name = "services_categories",
@@ -125,6 +125,10 @@ public class Service {
         this.bookings = bookings;
     }
 
+    public void addBooking(Booking booking){
+        this.bookings.add(booking);
+    }
+
     public List<Category> getCategories() {
         return categories;
     }
@@ -133,12 +137,20 @@ public class Service {
         this.categories = categories;
     }
 
+    public void addCategory(Category category){
+        this.categories.add(category);
+    }
+
     public List<Slot> getSlots() {
         return slots;
     }
 
     public void setSlots(List<Slot> slots) {
         this.slots = slots;
+    }
+
+    public void addSlots(Slot slot){
+        this.slots.add(slot);
     }
 
     public Shop getShop() {
