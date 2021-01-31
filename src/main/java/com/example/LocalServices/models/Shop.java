@@ -176,11 +176,19 @@ public class Shop {
         this.services = services;
     }
 
+    public void addService(Service service){
+        this.services.add(service);
+    }
+
     public List<Category> getCategories() {
         return categories;
     }
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public void addCategory(Category category){
+        this.categories.add(category);
     }
 }
