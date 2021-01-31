@@ -64,6 +64,9 @@ public class DataLoader implements ApplicationRunner {
         Service service2 = new Service("Facial", "Relax in elegant surroundings and enjoy a rejuvinating facial made to match your skins needs", 30.00, 60, shop2);
         serviceRepository.save(service2);
 
+        Service service3 = new Service("Manicure", "Choose from French Manicure or luxury hand massage and polish", 24.99, 30, shop2);
+        serviceRepository.save(service3);
+
         User user1 = new User("Emma", "Hack", 21, "73 Beach Road", "EH42 7HG", "Dunbar", 01562310544, "emma@gmail.com", "ILoveCoding", false);
         userRepository.save(user1);
 
@@ -72,6 +75,15 @@ public class DataLoader implements ApplicationRunner {
 
         Booking booking1 = new Booking("2021-01-25", "2021-01-30", 1030, 1130, "1 pair of brown leather boots to be re- heeled and re-soled please", user1);
         bookingRepository.save(booking1);
+
+        Booking booking2 = new Booking("2021-01-05", "2021-02-06", 1330, 1430, "facial for dry skin please", user2);
+        bookingRepository.save(booking2);
+
+        Booking booking3 = new Booking("2020-12-29", "2021-01-15", 1200, 1230, "french manicure", user1);
+        bookingRepository.save(booking3);
+
+        Booking booking4 = new Booking("2021-01-05", "2021-02-06", 1300, 1330, "luxury manicure", user2);
+        bookingRepository.save(booking4);
 
 
 
