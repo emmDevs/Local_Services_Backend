@@ -24,10 +24,10 @@ public class Booking {
     private Date date_of_booking;
 
     @Column(name = "arrival_time")
-    private Time arrival_time;
+    private int arrival_time;
 
     @Column(name="departure_time")
-    private Time departure_time;
+    private int departure_time;
 
     @Column(name="comments")
     private String comments;
@@ -64,7 +64,7 @@ public class Booking {
 
     }
 
-    public Booking(Date date_booking_made, Date date_of_booking, Time arrival_time, Time departure_time, String comments, User user){
+    public Booking(Date date_booking_made, Date date_of_booking, int arrival_time, int departure_time, String comments, User user){
         this.date_booking_made = date_booking_made;
         this.date_of_booking = date_of_booking;
         this.arrival_time = arrival_time;
@@ -98,19 +98,19 @@ public class Booking {
         this.date_of_booking = date_of_booking;
     }
 
-    public Time getArrival_time() {
+    public int getArrival_time() {
         return arrival_time;
     }
 
-    public void setArrival_time(Time arrival_time) {
+    public void setArrival_time(int arrival_time) {
         this.arrival_time = arrival_time;
     }
 
-    public Time getDeparture_time() {
+    public int getDeparture_time() {
         return departure_time;
     }
 
-    public void setDeparture_time(Time departure_time) {
+    public void setDeparture_time(int departure_time) {
         this.departure_time = departure_time;
     }
 
