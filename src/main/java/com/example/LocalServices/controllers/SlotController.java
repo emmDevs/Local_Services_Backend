@@ -50,4 +50,13 @@ public class SlotController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
+    @PutMapping(value ="/slots/{id}")
+    public ResponseEntity<Slot> updateSlot(@RequestBody Slot slot, @PathVariable Long id){
+        Slot slotToUpdate = slotRepository.findById(id).get();
+        slotToUpdate.setStartTime(slot.getStartTime());
+        slotToUpdate.setEndTime(slot.getEndTime());
+        slotRepository.save(slotToUpdate);
+        return new ResponseEntity<>(slotToUpdate, HttpStatus.OK);
+    }
+
 }
