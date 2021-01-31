@@ -141,8 +141,6 @@ public class Service {
         this.categories.add(category);
     }
 
-    public void addCateg
-
     public List<Slot> getSlots() {
         return slots;
     }
