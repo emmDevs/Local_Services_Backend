@@ -1,5 +1,7 @@
 package com.example.LocalServices.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.sql.Time;
 
@@ -17,13 +19,19 @@ public class Slot {
     @Column(name = "end_time")
     private int endTime;
 
+    @ManyToOne
+    @JoinColumn(name="service_id", nullable = false)
+    @JsonIgnoreProperties({"slots"})
+    private Service service;
+
     public Slot(){
 
     }
 
-    public Slot(int startTime, int endTime){
+    public Slot(int startTime, int endTime, Service service){
         this.startTime = startTime;
         this.endTime = endTime;
+        this.service = service;
     }
 
     public Long getId() {

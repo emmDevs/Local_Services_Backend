@@ -27,8 +27,8 @@ public class Service {
     @Column(name="duration")
     private int duration;
 
-    @OneToMany(mappedBy = "service")
-    @JsonIgnoreProperties({"service"})
+    @OneToMany(mappedBy = "services")
+    @JsonIgnoreProperties({"services"})
     private List<Booking> bookings;
 
     @ManyToMany

@@ -40,18 +40,6 @@ public class DataLoader implements ApplicationRunner {
         Category category2 = new Category("Beauty", "Pamper yourself", "https://pixabay.com/illustrations/massage-este-relax-relaxation-spa-1237913/");
         categoryRepository.save(category2);
 
-        Slot slot1 = new Slot(900, 1000);
-        slotRepository.save(slot1);
-
-        Slot slot2 = new Slot(1030, 1130);
-        slotRepository.save(slot2);
-
-        Slot slot3 = new Slot(1200, 1300);
-        slotRepository.save(slot3);
-
-        Slot slot4 = new Slot(1330, 1430);
-        slotRepository.save(slot4);
-
         Shop shop1 = new Shop("Claire the Cobbler", "123 High Street", "EH42 1FA", "Dunbar", "0900", "1700", 01314761234, "claire@thecobblers.co.uk", "https://www.istockphoto.com/photo/craftsman-repairing-or-making-a-pair-of-shoes-gm1172791191-325501452?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&referrer_url=https%3A//pixabay.com/images/search/cobblers/&utm_term=cobblers");
         shopRepository.save(shop1);
 
@@ -66,6 +54,42 @@ public class DataLoader implements ApplicationRunner {
 
         Service service3 = new Service("Manicure", "Choose from French Manicure or luxury hand massage and polish", 24.99, 30, shop2);
         serviceRepository.save(service3);
+
+        Slot slot1 = new Slot(900, 1000, service1 );
+        slotRepository.save(slot1);
+
+        Slot slot2 = new Slot(1030, 1130, service1);
+        slotRepository.save(slot2);
+
+        Slot slot3 = new Slot(1200, 1300, service1);
+        slotRepository.save(slot3);
+
+        Slot slot4 = new Slot(1330, 1430, service1);
+        slotRepository.save(slot4);
+
+        Slot slot5 = new Slot(900, 1000, service2 );
+        slotRepository.save(slot1);
+
+        Slot slot6 = new Slot(1030, 1130, service2);
+        slotRepository.save(slot2);
+
+        Slot slot7 = new Slot(1200, 1300, service2);
+        slotRepository.save(slot3);
+
+        Slot slot8 = new Slot(1330, 1430, service2);
+        slotRepository.save(slot4);
+
+        Slot slot9 = new Slot(900, 1000, service3 );
+        slotRepository.save(slot1);
+
+        Slot slot10 = new Slot(1030, 1130, service3);
+        slotRepository.save(slot2);
+
+        Slot slot11 = new Slot(1200, 1300, service3);
+        slotRepository.save(slot3);
+
+        Slot slot12 = new Slot(1330, 1430, service3);
+        slotRepository.save(slot4);
 
         User user1 = new User("Emma", "Hack", 21, "73 Beach Road", "EH42 7HG", "Dunbar", 01562310544, "emma@gmail.com", "ILoveCoding", false);
         userRepository.save(user1);
@@ -97,16 +121,16 @@ public class DataLoader implements ApplicationRunner {
         service1.addSlots(slot4);
         serviceRepository.save(service1);
 
-        service2.addSlots(slot1);
-        service2.addSlots(slot2);
-        service2.addSlots(slot3);
-        service2.addSlots(slot4);
+        service2.addSlots(slot5);
+        service2.addSlots(slot6);
+        service2.addSlots(slot7);
+        service2.addSlots(slot8);
         serviceRepository.save(service2);
 
-        service3.addSlots(slot1);
-        service3.addSlots(slot2);
-        service3.addSlots(slot3);
-        service3.addSlots(slot4);
+        service3.addSlots(slot9);
+        service3.addSlots(slot10);
+        service3.addSlots(slot11);
+        service3.addSlots(slot12);
         serviceRepository.save(service3);
 
         booking1.addService(service1);
