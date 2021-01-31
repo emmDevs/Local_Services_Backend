@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import axios from "axios";
 
 function NewShopForm({onFormSubmit}) {
 
@@ -129,13 +130,13 @@ function NewShopForm({onFormSubmit}) {
                 value={town}
                 onChange={handleTownChange}/>
 
+                <label>Opening Hour</label>
                 <input type="time"
-                placeholder="Opening Hour"
                 value={openingHour}
                 onChange={handleOpeningHourChange}/>
 
+                <label>Closing Hour</label>
                 <input type="time"
-                placeholder="Closing Hour"
                 value={closingHour}
                 onChange={handleClosingHourChange}/>
 

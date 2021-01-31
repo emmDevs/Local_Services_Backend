@@ -1,24 +1,25 @@
 import React from "react";
 
-const ShopDetails = ({shopProfile, load}) => {
+const ShopDetails = ({shop}) => {
 
-    if (!load){
+
+
+    if (!shop){
         return <p>Loading...</p>
     }
-
     return (
         <div>
-            <h3>{shopProfile.name}</h3>
-            <h5>{shopProfile.address}</h5>
-            <h5>{shopProfile.postcode}</h5>
-            <h5>{shopProfile.town}</h5>
-            <h5>{shopProfile.opening_hour}</h5>
-            <h5>{shopProfile.closing_hour}</h5>
-            <h5>{shopProfile.telephone_number}</h5>
-            <h5>{shopProfile.email}</h5>  
-            <h5><img src={shopProfile.image} alt="no image"/></h5>
-            <h5>{shopProfile.services[0].name}</h5>
-            <h5>{shopProfile.categories[0].name}</h5>
+            <h4>{shop.name}</h4>
+            <p>{shop.address}</p>
+            <p>{shop.postcode}</p>
+            <p>{shop.town}</p>
+            <p>{shop.opening_hour}</p>
+            <p>{shop.closing_hour}</p>
+            <p>{shop.telephone_number}</p>
+            <p>{shop.email}</p>  
+            <img src={shop.image} alt="no available"/>
+            <p>{shop.services[0].name}</p>
+            <p>{shop.categories[0].name}</p>
         </div>
     )
 
