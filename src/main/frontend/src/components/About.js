@@ -1,10 +1,28 @@
 import React from "react";
+import styled from 'styled-components';
 
 function About() {
 
+    const Heading = styled.h1`
+        color: red;
+        text-align: center;
+    `;
+
+    const Paragraph = styled.p`
+        color: red;
+        text-align: center;
+    `;
 
     return(
-        <h3>About Component</h3>
+
+        <div>
+            <Heading>About Shop Local</Heading>
+
+            <Paragraph>Shop Local is a site that was born in a time when gathering en mass has become , hopefully temporarily, a thing of the past.
+                As businesses reopen as lockdown lifts, there will be a need to organise and track times that are available for consumers to be able to enter businesses.
+                bla bla bla...
+            </Paragraph>
+        </div>
     )
 }
 
