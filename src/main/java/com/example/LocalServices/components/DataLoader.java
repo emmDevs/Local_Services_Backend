@@ -41,7 +41,7 @@ public class DataLoader implements ApplicationRunner {
         Category category2 = new Category("Beauty", "Pamper yourself", "https://pixabay.com/illustrations/massage-este-relax-relaxation-spa-1237913/");
         categoryRepository.save(category2);
 
-        Slot slot1 = new Slot(12:00, );
+        Slot slot1 = new Slot(090, 100);
 
 
 

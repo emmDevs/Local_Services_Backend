@@ -12,16 +12,16 @@ public class Slot {
     private Long id;
 
     @Column(name = "start_time")
-    private Time startTime;
+    private int startTime;
 
     @Column(name = "end_time")
-    private Time endTime;
+    private int endTime;
 
     public Slot(){
 
     }
 
-    public Slot(Time startTime, Time endTime){
+    public Slot(int startTime, int endTime){
         this.startTime = startTime;
         this.endTime = endTime;
     }
@@ -34,19 +34,19 @@ public class Slot {
         this.id = id;
     }
 
-    public Time getStartTime() {
+    public int getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(int startTime) {
         this.startTime = startTime;
     }
 
-    public Time getEndTime() {
+    public int getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Time endTime) {
+    public void setEndTime(int endTime) {
         this.endTime = endTime;
     }
 }

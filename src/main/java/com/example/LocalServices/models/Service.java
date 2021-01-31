@@ -32,7 +32,7 @@ public class Service {
     private List<Booking> bookings;
 
     @ManyToMany
-    @JsonIgnoreProperties({"service"})
+    @JsonIgnoreProperties({"services"})
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
             name = "services_categories",
