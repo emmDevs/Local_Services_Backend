@@ -70,7 +70,8 @@ public class DataLoader implements ApplicationRunner {
        User user2 = new User("Claire", "Smith", 35, "123 High Street", "EH42 1FA", "Dunbar", 01314761234, "claire@thecobblers.co.uk", "ILoveShoes", true);
        userRepository.save(user2);
 
-       Booking booking1 = new Booking(2021-01-25, )
+       Booking booking1 = new Booking(2021-01-25, 2021-01-30, 1030, 1130, "1 pair of brown leather boots to be re- heeled and re-soled please", user1);
+       bookingRepository.save(booking1);
 
 
 
