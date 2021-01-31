@@ -1,6 +1,7 @@
 package com.example.LocalServices.controllers;
 
 import com.example.LocalServices.models.Slot;
+import com.example.LocalServices.models.User;
 import com.example.LocalServices.repositories.SlotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
