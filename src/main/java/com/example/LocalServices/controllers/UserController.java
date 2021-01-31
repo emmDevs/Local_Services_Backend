@@ -51,4 +51,22 @@ public class UserController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
+    @PutMapping(value = "/users/{id}")
+    public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable Long id){
+        User userToUpdate = userRepository.findById(id).get();
+        userToUpdate.setFirstName(user.getFirstName());
+        userToUpdate.setLastName(user.getLastName());
+        userToUpdate.setAge(user.getAge());
+        userToUpdate.setAccess(user.getAccess());
+        userToUpdate.setPostcode(user.getPostcode());
+        userToUpdate.setTown(user.getTown());
+        userToUpdate.setTelephoneNumber(user.getTelephoneNumber());
+        userToUpdate.setEmail(user.getEmail());
+        userToUpdate.setPassword(user.getPassword());
+        userToUpdate.setAccess(user.getAccess());
+        userToUpdate.setBookings(user.getBookings());
+        userRepository.save(userToUpdate);
+        return new ResponseEntity<>(userToUpdate, HttpStatus.OK);
+    }
+
 }
