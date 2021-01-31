@@ -53,7 +53,7 @@ public class BookingController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-    @PutMapping(value="/booking/{id}")
+    @PutMapping(value="/bookings/{id}")
     public ResponseEntity<Booking> updateBooking(@RequestBody Booking booking, @PathVariable Long id){
         Booking bookingToUpdate = bookingRepository.findById(id).get();
         bookingToUpdate.setDate_booking_made(booking.getDate_booking_made());
