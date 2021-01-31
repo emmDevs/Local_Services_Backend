@@ -52,4 +52,19 @@ public class ServiceController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
+    @PutMapping(value="/services/{id}")
+    public ResponseEntity<Service> updateService(@RequestBody Service service, @PathVariable Long id){
+        Service serviceToUpdate = serviceRepository.findById(id).get();
+        serviceToUpdate.setName(service.getName());
+        serviceToUpdate.setDescription(service.getDescription());
+        serviceToUpdate.setPrice(service.getPrice());
+        serviceToUpdate.setDuration(service.getDuration());
+        serviceToUpdate.setCategories(service.getCategories());
+        serviceToUpdate.setSlots(service.getSlots());
+        serviceToUpdate.setBookings(service.getBookings());
+        serviceToUpdate.setShop(service.getShop());
+        serviceRepository.save(serviceToUpdate);
+        return new ResponseEntity<>(serviceToUpdate, HttpStatus.OK);
+    }
+
 }
