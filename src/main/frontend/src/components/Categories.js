@@ -1,12 +1,20 @@
 import React from "react";
+import styled from 'styled-components';
 
 function Categories() {
 
-    
+    const CategoryLabel = styled.label`
+        font-family: sans-serif;
+        font-size: 24px;
+        margin: 10px;
+        padding: 0;
+        position: relative;
+        left: 0;
+    `;
 
 
     return(
-        <h3>List of Categories</h3>
+        <CategoryLabel>List of Categories</CategoryLabel>
     )
 }
 

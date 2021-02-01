@@ -9,8 +9,11 @@ function Home() {
     const HomeContainer = styled.div`
         display: flex;
         flex-direction: row;
+        width: 100%;
         flex-grow: 1;
-        margin: 50px;
+        margin: 5px;
+        position: relative;
+        top: 40px;
     `;
 
     

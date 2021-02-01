@@ -14,7 +14,7 @@ function NavBar() {
         flex-direction: row;
         flex-grow: 1;
         height: 110px;
-        background-image: linear-gradient(aqua, white);
+        background-image: linear-gradient(aqua, transparent);
     `;
 
     const Text = styled.p`
@@ -37,9 +37,11 @@ function NavBar() {
 
     const Img = styled.img`
         padding: 15px;
-        top: 15px;
+        position: relative;
+        top: 10px;
         height: 25px;
         width: auto;
+        margin-right: 50px;
     `;
 
     const Img_2 = styled.img`

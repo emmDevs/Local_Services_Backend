@@ -49,10 +49,11 @@ const Shop = () => {
       {shopList
         ? shopList.map((shop, index) => {
           return(
-            <ShopDetails shop={shop} key={index} />
-            // <div key={index}>
-            //   <h5>Id {shop.id}. {shop.name}</h5>
-            // </div>
+            // <ShopDetails shop={shop} key={index} />
+            <div key={index}>
+              {/* <h5></h5> */}
+              <Link to={`/shop/${shop.id}`}><button>{shop.name}</button></Link>
+            </div>
           );
         })
         : "Loading..."}

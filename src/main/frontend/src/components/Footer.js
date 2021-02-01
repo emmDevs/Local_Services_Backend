@@ -9,14 +9,14 @@ function Footer() {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    background-image: linear-gradient(white, aqua);
+    background-image: linear-gradient(transparent, aqua);
     position: absolute;
     bottom: 0;
     `;
 
     const FooterList = styled.a`
         padding: 20px;
-        margin: auto;
+        justify-content: right;
     `;
 
 
