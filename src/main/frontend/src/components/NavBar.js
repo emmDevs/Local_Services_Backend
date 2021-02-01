@@ -3,34 +3,49 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import basket from "../assets/shopping-basket.png"
+import Logo from "../assets/ShLogo.png"
 
 
 
 function NavBar() {
 
     const Header = styled.div`
-    background-color: pink;
         display: flex;
         flex-direction: row;
         flex-grow: 1;
+        height: 110px;
+        background-image: linear-gradient(aqua, white);
     `;
 
-    const Li = styled.li`
-        position: relative;
+    const Text = styled.p`
+        color: grey;
         text-decoration: none;
-        list-style-type: none;
-        list-style: none;
-        padding: 10px;
-        color: white;
 
         :hover {
-            color: red;
+            color: blue;
         }
     `;
 
+    const Li = styled.li`
+        list-style-type: none;
+        list-style: none;
+        padding: 15px;
+        text-decoration: none;
+        font-family: sans-serif;
+        font-size: 25px;
+    `;
+
     const Img = styled.img`
+        padding: 15px;
+        top: 15px;
         height: 25px;
         width: auto;
+    `;
+
+    const Img_2 = styled.img`
+    height: 200px;
+    width: auto;
+    position: absolute;
     `;
 
     const Ul = styled.ul`
@@ -42,17 +57,17 @@ function NavBar() {
 
     return(
         <Header>
-            <Link to="/">Site Name/Logo</Link>
+            <Link style={{Text}} to="/"><Img_2 src={Logo} alt="logo"></Img_2></Link>
 
             <Ul>
                 <Li>
-                    <Link to="/about">About</Link>
+                    <Link to="/about"><Text>About</Text></Link>
                 </Li>
                 <Li>
-                    <Link to="/shop">Shop</Link>
+                    <Link to="/shop"><Text>Shop</Text></Link>
                 </Li>
                 <Li>
-                    <Link to="/basket"><Img src={basket} onClick="" alt="basket"></Img></Link>
+                    <Link to="/basket"><Img src={basket} alt="basket"></Img></Link>
                 </Li>
             </Ul>
         </Header>

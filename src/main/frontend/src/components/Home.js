@@ -2,22 +2,25 @@
 import React from "react";
 import Search from "./Search";
 import Categories from "./Categories";
-import style from 'styled-components';
+import styled from 'styled-components';
 
 function Home() {
 
-    const Title = style.h1`
-        color: green;
-        text-align: center;
+    const HomeContainer = styled.div`
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        margin: 50px;
     `;
+
+    
 
 
     return(
-        <div>
+        <HomeContainer>
             <Search/>
             <Categories/>
-            <Title>Home</Title>
-        </div>
+        </HomeContainer>
     )
 }
 
