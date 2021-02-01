@@ -6,8 +6,9 @@ import Search from "./components/Search";
 import About from "./components/About";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
-import Basket from "./components/Basket"
+import Basket from "./components/Basket";
 import Footer from "./components/Footer";
+import NewShopForm from "./components/NewShopForm";
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/search" component={Search}/>
         <Route path="/about" component={About}/>  
         <Route path="/shop" component={Shop}/>
+        <Route path="/new-form" component={NewShopForm}/>
         <Route path="/basket" component={Basket}/>
 
       </Switch>
