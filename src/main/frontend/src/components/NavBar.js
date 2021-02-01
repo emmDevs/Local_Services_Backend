@@ -1,23 +1,61 @@
+import '../app.css';
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import basket from "../assets/shopping-basket.png"
+
+
 
 function NavBar() {
+
+    const Header = styled.div`
+    background-color: pink;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+    `;
+
+    const Li = styled.li`
+        position: relative;
+        text-decoration: none;
+        list-style-type: none;
+        list-style: none;
+        padding: 10px;
+        color: white;
+
+        :hover {
+            color: red;
+        }
+    `;
+
+    const Img = styled.img`
+        height: 25px;
+        width: auto;
+    `;
+
+    const Ul = styled.ul`
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+    `;
+
+
     return(
-        <div>
+        <Header>
             <Link to="/">Site Name/Logo</Link>
 
-            <ul>
-                <li>
+            <Ul>
+                <Li>
                     <Link to="/about">About</Link>
-                </li>
-                <li>
+                </Li>
+                <Li>
                     <Link to="/shop">Shop</Link>
-                </li>
-                <li>
-                    <Link to="/basket">Basket</Link>
-                </li>
-            </ul>
-        </div>
+                </Li>
+                <Li>
+                    <Link to="/basket"><Img src={basket} onClick="" alt="basket"></Img></Link>
+                </Li>
+            </Ul>
+        </Header>
     )
 }
 
