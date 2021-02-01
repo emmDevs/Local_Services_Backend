@@ -29,14 +29,14 @@ public class Shop {
     @Column(name="town")
     private String town;
 
-    @Column(name="openingHour")
-    private String opening_hour;
+    @Column(name="opening_hour")
+    private String openingHour;
 
     @Column(name="closing_hour")
-    private String closing_hour;
+    private String closingHour;
 
     @Column(name="telephone_number")
-    private int telephone_number;
+    private int telephoneNumber;
 
     @Column(name="email")
     private String email;
@@ -74,14 +74,14 @@ public class Shop {
 
     }
 
-    public Shop(String name, String address, String postcode, String town, String opening_hour, String closing_hour, int telephone_number, String email, String image){
+    public Shop(String name, String address, String postcode, String town, String openingHour, String closingHour, int telephoneNumber, String email, String image){
         this.name = name;
         this.address = address;
         this.postcode = postcode;
         this.town = town;
-        this.opening_hour = opening_hour;
-        this.closing_hour = closing_hour;
-        this.telephone_number = telephone_number;
+        this.openingHour = openingHour;
+        this.closingHour = closingHour;
+        this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.image = image;
         this.categories = new ArrayList<Category>();
@@ -129,27 +129,27 @@ public class Shop {
     }
 
     public String getOpening_hour() {
-        return opening_hour;
+        return openingHour;
     }
 
-    public void setOpening_hour(String opening_hour) {
-        this.opening_hour = opening_hour;
+    public void setOpening_hour(String openingHour) {
+        this.openingHour = openingHour;
     }
 
     public String getClosing_hour() {
-        return closing_hour;
+        return closingHour;
     }
 
-    public void setClosing_hour(String closing_hour) {
-        this.closing_hour = closing_hour;
+    public void setClosing_hour(String closingHour) {
+        this.closingHour = closingHour;
     }
 
     public int getTelephone_number() {
-        return telephone_number;
+        return telephoneNumber;
     }
 
-    public void setTelephone_number(int telephone_number) {
-        this.telephone_number = telephone_number;
+    public void setTelephone_number(int telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
     public String getEmail() {
