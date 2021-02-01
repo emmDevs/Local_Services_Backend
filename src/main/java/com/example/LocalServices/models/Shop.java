@@ -29,7 +29,7 @@ public class Shop {
     @Column(name="town")
     private String town;
 
-    @Column(name="opening_hour")
+    @Column(name="openingHour")
     private String opening_hour;
 
     @Column(name="closing_hour")

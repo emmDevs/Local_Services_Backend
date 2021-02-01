@@ -1,6 +1,10 @@
 package com.example.LocalServices.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="categories")
@@ -18,6 +22,48 @@ public class Category {
 
     @Column(name = "image")
     private String image;
+
+    @ManyToMany
+    @JsonIgnoreProperties({"categories"})
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(
+                            name="category_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "shop_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            }
+    )
+    private List<Shop> shops;
+
+    @ManyToMany
+    @JsonIgnoreProperties({"categories"})
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(
+                            name="category_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "service_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            }
+    )
+    private List<Service> services;
 
     public Category(){
 

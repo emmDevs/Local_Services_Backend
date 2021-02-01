@@ -53,7 +53,7 @@ public class Service {
     )
     private List<Category> categories;
 
-    @OneToMany(mappedBy = "service")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "service")
     @JsonIgnoreProperties({"service"})
     private List<Slot> slots;
 

@@ -39,7 +39,7 @@ public class SlotController {
         return new ResponseEntity(slotRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/slots")
+    @PostMapping(value = "/slots")
     public ResponseEntity<Slot> postSlot(@RequestBody Slot slot){
         slotRepository.save(slot);
         return new ResponseEntity<>(slot, HttpStatus.CREATED);
