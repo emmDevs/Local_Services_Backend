@@ -52,7 +52,7 @@ const Shop = () => {
             // <ShopDetails shop={shop} key={index} />
             <div key={index}>
               {/* <h5></h5> */}
-              <Link to={`/shop/${shop.id}`}>Id {shop.id}. {shop.name}</Link>
+              <Link to={`/shop/${shop.id}`}><button>{shop.name}</button></Link>
             </div>
           );
         })
