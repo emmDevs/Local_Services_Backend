@@ -1,7 +1,6 @@
 import './app.css';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Route, Switch, BrowserRouter as Router} from 'react-router-dom';
-import axios from 'axios';
 import NavBar from "./components/NavBar";
 import Search from "./components/Search";
 import About from "./components/About";

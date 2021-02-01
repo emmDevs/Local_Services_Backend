@@ -52,7 +52,7 @@ function NavBar() {
                     <Link to="/shop">Shop</Link>
                 </Li>
                 <Li>
-                    <Link to="/basket"><Img src={basket} onClick="" alt="basket"></Img></Link>
+                    <Link to="/basket"><Img src={basket} alt="basket"></Img></Link>
                 </Li>
             </Ul>
         </Header>

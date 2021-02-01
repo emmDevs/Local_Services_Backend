@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {Route, useParams, Switch, BrowserRouter as Router} from 'react-router-dom';
-import axios from "axios";
+import {Route, useParams, BrowserRouter as Router} from 'react-router-dom';
+// import axios from "axios";
 
 const ShopDetails = () => {
 
