@@ -1,7 +1,6 @@
 package com.example.LocalServices.controllers;
 
 import com.example.LocalServices.models.Shop;
-import com.example.LocalServices.repositories.ServiceRepository;
 import com.example.LocalServices.repositories.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -51,6 +50,22 @@ public class ShopController {
     public ResponseEntity<Long> deleteShop(@PathVariable Long id){
         shopRepository.deleteById(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/shops/{id}")
+    public ResponseEntity<Shop> updateShop(@RequestBody Shop shop, @PathVariable Long id){
+        Shop shopToUpdate = shopRepository.findById(id).get();
+        shopToUpdate.setName(shop.getName());
+        shopToUpdate.setAddress(shop.getAddress());
+        shopToUpdate.setPostcode(shop.getPostcode());
+        shopToUpdate.setTown(shop.getTown());
+        shopToUpdate.setOpening_hour(shop.getOpening_hour());
+        shopToUpdate.setClosing_hour(shop.getClosing_hour());
+        shopToUpdate.setTelephone_number(shop.getTelephone_number());
+        shopToUpdate.setEmail(shop.getEmail());
+        shopToUpdate.setImage(shop.getImage());
+        shopRepository.save(shopToUpdate);
+        return new ResponseEntity<>(shopToUpdate, HttpStatus.OK);
     }
 
 }

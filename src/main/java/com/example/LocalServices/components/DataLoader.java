@@ -68,28 +68,28 @@ public class DataLoader implements ApplicationRunner {
         slotRepository.save(slot4);
 
         Slot slot5 = new Slot(900, 1000, service2 );
-        slotRepository.save(slot1);
+        slotRepository.save(slot5);
 
         Slot slot6 = new Slot(1030, 1130, service2);
-        slotRepository.save(slot2);
+        slotRepository.save(slot6);
 
         Slot slot7 = new Slot(1200, 1300, service2);
-        slotRepository.save(slot3);
+        slotRepository.save(slot7);
 
         Slot slot8 = new Slot(1330, 1430, service2);
-        slotRepository.save(slot4);
+        slotRepository.save(slot8);
 
         Slot slot9 = new Slot(900, 1000, service3 );
-        slotRepository.save(slot1);
+        slotRepository.save(slot9);
 
         Slot slot10 = new Slot(1030, 1130, service3);
-        slotRepository.save(slot2);
+        slotRepository.save(slot10);
 
         Slot slot11 = new Slot(1200, 1300, service3);
-        slotRepository.save(slot3);
+        slotRepository.save(slot11);
 
         Slot slot12 = new Slot(1330, 1430, service3);
-        slotRepository.save(slot4);
+        slotRepository.save(slot12);
 
         User user1 = new User("Emma", "Hack", 21, "73 Beach Road", "EH42 7HG", "Dunbar", 01562310544, "emma@gmail.com", "ILoveCoding", false);
         userRepository.save(user1);

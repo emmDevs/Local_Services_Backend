@@ -19,6 +19,8 @@ public class Slot {
     @Column(name = "end_time")
     private int endTime;
 
+
+
     @ManyToOne
     @JoinColumn(name="service_id", nullable = false)
     @JsonIgnoreProperties({"slots"})
@@ -57,4 +59,13 @@ public class Slot {
     public void setEndTime(int endTime) {
         this.endTime = endTime;
     }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
+    }
+
 }
