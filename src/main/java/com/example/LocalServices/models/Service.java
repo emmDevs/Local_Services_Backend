@@ -27,7 +27,7 @@ public class Service {
     @Column(name="duration")
     private int duration;
 
-    @OneToMany(mappedBy = "services")
+    @OneToMany(cascade =CascadeType.ALL, mappedBy = "services")
     @JsonIgnoreProperties({"services"})
     private List<Booking> bookings;
 
@@ -53,7 +53,7 @@ public class Service {
     )
     private List<Category> categories;
 
-    @OneToMany(mappedBy = "service")
+    @OneToMany(cascade =CascadeType.ALL, mappedBy = "service")
     @JsonIgnoreProperties({"service"})
     private List<Slot> slots;
 
