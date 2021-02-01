@@ -1,6 +1,5 @@
 package com.example.LocalServices.controllers;
 
-import com.example.LocalServices.models.Booking;
 import com.example.LocalServices.models.Service;
 import com.example.LocalServices.repositories.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;

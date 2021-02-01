@@ -1,7 +1,6 @@
 package com.example.LocalServices.controllers;
 
 import com.example.LocalServices.models.Shop;
-import com.example.LocalServices.repositories.ServiceRepository;
 import com.example.LocalServices.repositories.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
