@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 // import axios from "axios";
 
-function NewShopForm({onFormSubmit}) {
+function NewShopForm() {
     const [formData, setFormData] = useState({
         name: '',
         address: '',
@@ -18,7 +18,7 @@ function NewShopForm({onFormSubmit}) {
 
     const handleChange = (evt) => {
         const newState = {...formData};
-        newState[evt.target.name] = parseInt(evt.target.value);
+        // newState[evt.target.name] = parseInt(evt.target.value);
         setFormData(newState);
     }
 
@@ -26,6 +26,13 @@ function NewShopForm({onFormSubmit}) {
         evt.preventDefault();
         onFormSubmit(formData);
     }
+
+    // TO FIX!!!
+    // const handlePost = function(formData){
+    //     const request = new Request();
+    //     request.post("/api/pirates", formData)
+    //     .then(() => window.location = '/pirates')
+    //   }
 
     return(
         <div>
@@ -137,7 +144,7 @@ function NewShopForm({onFormSubmit}) {
                     required/>
                 </div>
 
-                <div className="form_wrap">
+                {/* <div className="form_wrap">
                     <label htmlFor="category">Category:</label>
                     <input
                     onChange={handleChange}
@@ -159,7 +166,7 @@ function NewShopForm({onFormSubmit}) {
                     placeholder="Services"
                     value={formData.services}
                     required/>
-                </div>
+                </div> */}
 
                 <input onClick={handleSubmit} type="submit" value="submit" />
             </form>
