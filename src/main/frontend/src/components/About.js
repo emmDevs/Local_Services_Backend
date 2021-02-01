@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function About() {
 
     const Heading = styled.h1`
-        color: red;
+        color: green;
         text-align: center;
     `;
 
