@@ -9,7 +9,7 @@ function About() {
     `;
 
     const Paragraph = styled.p`
-        color: red;
+        color: #2c2c2c;
         text-align: center;
     `;
 

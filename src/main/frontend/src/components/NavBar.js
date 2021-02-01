@@ -18,7 +18,14 @@ function NavBar() {
     const Li = styled.li`
         position: relative;
         text-decoration: none;
-        padding: 4px;
+        list-style-type: none;
+        list-style: none;
+        padding: 10px;
+        color: white;
+
+        :hover {
+            color: red;
+        }
     `;
 
     const Img = styled.img`
