@@ -44,9 +44,6 @@ public class Shop {
     @Column(name="image")
     private String image;
 
-    @OneToMany(mappedBy = "shop")
-    @JsonIgnoreProperties({"shop"})
-    private List<Service> services;
 
     @ManyToMany
     @JsonIgnoreProperties({"shop"})
@@ -69,6 +66,28 @@ public class Shop {
             }
     )
     private List<Category> categories;
+
+    @ManyToMany
+    @JsonIgnoreProperties({"shop"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "shops_services",
+            joinColumns = {
+                    @JoinColumn(
+                            name="shop_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "service_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            }
+    )
+    private List<Service> services;
 
     public Shop(){
 
