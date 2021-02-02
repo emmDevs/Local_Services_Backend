@@ -18,16 +18,16 @@ public class Booking {
     private Long id;
 
     @Column(name = "date_booking_made")
-    private String date_booking_made;
+    private String dateBookingMade;
 
     @Column(name="date_of_booking")
-    private String date_of_booking;
+    private String dateOfBooking;
 
     @Column(name = "arrival_time")
-    private int arrival_time;
+    private int arrivalTime;
 
     @Column(name="departure_time")
-    private int departure_time;
+    private int departureTime;
 
     @Column(name="comments")
     private String comments;
@@ -64,11 +64,11 @@ public class Booking {
 
     }
 
-    public Booking(String date_booking_made, String date_of_booking, int arrival_time, int departure_time, String comments, User user){
-        this.date_booking_made = date_booking_made;
-        this.date_of_booking = date_of_booking;
-        this.arrival_time = arrival_time;
-        this.departure_time = departure_time;
+    public Booking(String dateBookingMade, String dateOfBooking, int arrivalTime, int departureTime, String comments, User user){
+        this.dateBookingMade = dateBookingMade;
+        this.dateOfBooking = dateOfBooking;
+        this.arrivalTime = arrivalTime;
+        this.departureTime = departureTime;
         this.comments = comments;
         this.user = user;
         this.services = new ArrayList<Service>();
@@ -83,35 +83,35 @@ public class Booking {
     }
 
     public String getDate_booking_made() {
-        return date_booking_made;
+        return dateBookingMade;
     }
 
-    public void setDate_booking_made(String date_booking_made) {
-        this.date_booking_made = date_booking_made;
+    public void setDate_booking_made(String dateBookingMade) {
+        this.dateBookingMade = dateBookingMade;
     }
 
     public String getDate_of_booking() {
-        return date_of_booking;
+        return dateOfBooking;
     }
 
-    public void setDate_of_booking(String date_of_booking) {
-        this.date_of_booking = date_of_booking;
+    public void setDate_of_booking(String dateOfBooking) {
+        this.dateOfBooking = dateOfBooking;
     }
 
     public int getArrival_time() {
-        return arrival_time;
+        return arrivalTime;
     }
 
-    public void setArrival_time(int arrival_time) {
-        this.arrival_time = arrival_time;
+    public void setArrival_time(int arrivalTime) {
+        this.arrivalTime = arrivalTime;
     }
 
     public int getDeparture_time() {
-        return departure_time;
+        return departureTime;
     }
 
-    public void setDeparture_time(int departure_time) {
-        this.departure_time = departure_time;
+    public void setDeparture_time(int departureTime) {
+        this.departureTime = departureTime;
     }
 
     public String getComments() {
