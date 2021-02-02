@@ -25,7 +25,7 @@ function NewSlot() {
               'Content-Type': 'application/json'
             }
         })
-        .then(() => window.location = "/slot")
+        // .then(() => window.location = "/slot")
     }
     
     return(
@@ -39,7 +39,6 @@ function NewSlot() {
                     type="time"
                     name="startTime"
                     id="startTime"
-                    placeholder="Start Time"
                     value={formData.startTime}
                     required/>
                 </div>
@@ -51,7 +50,6 @@ function NewSlot() {
                     type="time"
                     name="endTime"
                     id="endTime"
-                    placeholder="End Time"
                     value={formData.endTime}
                     required/>
                 </div>
@@ -62,6 +60,5 @@ function NewSlot() {
     )
     
 }
-
 
 export default NewSlot;
