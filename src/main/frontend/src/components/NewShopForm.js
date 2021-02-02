@@ -11,14 +11,14 @@ function NewShopForm() {
         closingHour: '',
         telephoneNumber: '',
         email: '',
-        image: '',
-        category: '',
-        services: ''
+        image: ''
+        // category: '',
+        // services: ''
     });
 
     const handleChange = (evt) => {
         const newState = {...formData};
-        // newState[evt.target.name] = parseInt(evt.target.value);
+        newState[evt.target.name] = evt.target.value;
         setFormData(newState);
     }
 
@@ -27,12 +27,18 @@ function NewShopForm() {
         onFormSubmit(formData);
     }
 
-    // TO FIX!!!
-    // const handlePost = function(formData){
-    //     const request = new Request();
-    //     request.post("/api/pirates", formData)
-    //     .then(() => window.location = '/pirates')
-    //   }
+    const onFormSubmit = function(){
+        fetch("http://localhost:8080/shops/", {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        })
+        // const request = new Request();
+        // request.post("http://localhost:8080/shops/", formData)
+        // .then(() => window.location = '/shops')
+      }
 
     return(
         <div>

@@ -29,8 +29,8 @@ const ShopDetails = () => {
             <p>{shop.telephone_number}</p>
             <p>{shop.email}</p>  
             <img src={shop.image} alt="no available"/>
-            <p>{shop.services[0].name}</p>
-            <p>{shop.categories[0].name}</p>
+            {/* <p>{shop.services[0].name}</p>
+            <p>{shop.categories[0].name}</p> */}
         </div>
     )
 
