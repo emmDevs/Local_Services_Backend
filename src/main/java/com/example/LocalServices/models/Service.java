@@ -58,10 +58,26 @@ public class Service {
     @JsonIgnoreProperties({"service"})
     private List<Slot> slots;
 
-    @ManyToOne
-    @JoinColumn(name="Shop_id", nullable = false)
-    @JsonIgnoreProperties({"services"})
-    private Shop shop;
+    @ManyToMany
+    @JsonIgnoreProperties({"service"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(
+                            name="service_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "shop_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            }
+    )
+    private List<Shop> shops;
 
     public Service(){
 
@@ -75,7 +91,7 @@ public class Service {
         this.categories = new ArrayList<Category>();
         this.slots = new ArrayList<Slot>();
         this.bookings = new ArrayList<Booking>();
-        this.shop = shop;
+        this.shops = new ArrayList<Shop>();
     }
 
     public Long getId() {
@@ -154,13 +170,12 @@ public class Service {
         this.slots.add(slot);
     }
 
-    public Shop getShop() {
-        return shop;
+
+    public List<Shop> getShops() {
+        return shops;
     }
 
-    public void setShop(Shop shop) {
-        this.shop = shop;
+    public void setShops(List<Shop> shops) {
+        this.shops = shops;
     }
-
-
 }

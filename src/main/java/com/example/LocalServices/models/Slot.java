@@ -1,9 +1,11 @@
 package com.example.LocalServices.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "slots")
@@ -14,10 +16,10 @@ public class Slot {
     private Long id;
 
     @Column(name = "start_time")
-    private int startTime;
+    private LocalTime startTime;
 
     @Column(name = "end_time")
-    private int endTime;
+    private LocalTime endTime;
 
 
 
@@ -30,7 +32,7 @@ public class Slot {
 
     }
 
-    public Slot(int startTime, int endTime, Service service){
+    public Slot(LocalTime startTime, LocalTime endTime, Service service){
         this.startTime = startTime;
         this.endTime = endTime;
         this.service = service;
@@ -44,19 +46,19 @@ public class Slot {
         this.id = id;
     }
 
-    public int getStartTime() {
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(int startTime) {
+    public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
-    public int getEndTime() {
+    public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(int endTime) {
+    public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
 

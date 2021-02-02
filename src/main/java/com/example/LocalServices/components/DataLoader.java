@@ -7,6 +7,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalTime;
+
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -40,10 +42,10 @@ public class DataLoader implements ApplicationRunner {
         Category category2 = new Category("Beauty", "Pamper yourself", "https://pixabay.com/illustrations/massage-este-relax-relaxation-spa-1237913/");
         categoryRepository.save(category2);
 
-        Shop shop1 = new Shop("Claire the Cobbler", "123 High Street", "EH42 1FA", "Dunbar", "0900", "1700", 01314761234, "claire@thecobblers.co.uk", "https://www.istockphoto.com/photo/craftsman-repairing-or-making-a-pair-of-shoes-gm1172791191-325501452?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&referrer_url=https%3A//pixabay.com/images/search/cobblers/&utm_term=cobblers");
+        Shop shop1 = new Shop("Claire the Cobbler", "123 High Street", "EH42 1FA", "Dunbar", LocalTime.parse("09:00"), LocalTime.parse("17:00"), "01314761234", "claire@thecobblers.co.uk", "https://www.istockphoto.com/photo/craftsman-repairing-or-making-a-pair-of-shoes-gm1172791191-325501452?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&referrer_url=https%3A//pixabay.com/images/search/cobblers/&utm_term=cobblers");
         shopRepository.save(shop1);
 
-        Shop shop2 = new Shop("Beauty from Above", "56 Market Street", "EH3 6HR", "Edinburgh", "1000", "1800", 01314761234, "beauty@theshop.com", "https://pixabay.com/photos/spa-salon-resort-oil-massage-2608450/");
+        Shop shop2 = new Shop("Beauty from Above", "56 Market Street", "EH3 6HR", "Edinburgh", LocalTime.parse("10:00"), LocalTime.parse("18:00"), "01314761234", "beauty@theshop.com", "https://pixabay.com/photos/spa-salon-resort-oil-massage-2608450/");
         shopRepository.save(shop2);
 
         Service service1 = new Service("Shoe Repair", "one pair of shoes reheeled and resoled", 9.99, 60, shop1);
@@ -55,40 +57,40 @@ public class DataLoader implements ApplicationRunner {
         Service service3 = new Service("Manicure", "Choose from French Manicure or luxury hand massage and polish", 24.99, 30, shop2);
         serviceRepository.save(service3);
 
-        Slot slot1 = new Slot(900, 1000, service1 );
+        Slot slot1 = new Slot(LocalTime.parse("09:00"), LocalTime.parse("10:00"), service1);
         slotRepository.save(slot1);
 
-        Slot slot2 = new Slot(1030, 1130, service1);
+        Slot slot2 = new Slot(LocalTime.parse("10:30"), LocalTime.parse("11:30"), service1);
         slotRepository.save(slot2);
 
-        Slot slot3 = new Slot(1200, 1300, service1);
+        Slot slot3 = new Slot(LocalTime.parse("12:00"), LocalTime.parse("13:00"), service1);
         slotRepository.save(slot3);
 
-        Slot slot4 = new Slot(1330, 1430, service1);
+        Slot slot4 = new Slot(LocalTime.parse("13:30"), LocalTime.parse("14:30"), service1);
         slotRepository.save(slot4);
 
-        Slot slot5 = new Slot(900, 1000, service2 );
+        Slot slot5 = new Slot(LocalTime.parse("09:00"), LocalTime.parse("10:00"), service2 );
         slotRepository.save(slot5);
 
-        Slot slot6 = new Slot(1030, 1130, service2);
+        Slot slot6 = new Slot(LocalTime.parse("10:30"), LocalTime.parse("11:30"), service2);
         slotRepository.save(slot6);
 
-        Slot slot7 = new Slot(1200, 1300, service2);
+        Slot slot7 = new Slot(LocalTime.parse("12:00"), LocalTime.parse("13:00"), service2);
         slotRepository.save(slot7);
 
-        Slot slot8 = new Slot(1330, 1430, service2);
+        Slot slot8 = new Slot(LocalTime.parse("13:30"), LocalTime.parse("14:30"), service2);
         slotRepository.save(slot8);
 
-        Slot slot9 = new Slot(900, 1000, service3 );
+        Slot slot9 = new Slot(LocalTime.parse("09:00"), LocalTime.parse("10:00"), service3 );
         slotRepository.save(slot9);
 
-        Slot slot10 = new Slot(1030, 1130, service3);
+        Slot slot10 = new Slot(LocalTime.parse("10:30"), LocalTime.parse("11:30"), service3);
         slotRepository.save(slot10);
 
-        Slot slot11 = new Slot(1200, 1300, service3);
+        Slot slot11 = new Slot(LocalTime.parse("12:00"), LocalTime.parse("13:00"), service3);
         slotRepository.save(slot11);
 
-        Slot slot12 = new Slot(1330, 1430, service3);
+        Slot slot12 = new Slot(LocalTime.parse("13:30"), LocalTime.parse("14:30"), service3);
         slotRepository.save(slot12);
 
         User user1 = new User("Emma", "Hack", 21, "73 Beach Road", "EH42 7HG", "Dunbar", 01562310544, "emma@gmail.com", "ILoveCoding", false);
