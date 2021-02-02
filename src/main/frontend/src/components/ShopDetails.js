@@ -7,6 +7,8 @@ const ShopDetails = () => {
     const shopId = useParams().shopId;
 
     const [shop, setShop]= useState(null);
+    // const [serviceList, setServiceList] = useState([])
+
     useEffect(() => {
         fetch(`http://localhost:8080/shops/${shopId}`)
         .then(res => res.json())

@@ -3,7 +3,7 @@ import React, {useState} from "react";
 function NewSlot() {
     const [formData, setFormData] = useState({
         startTime: '',
-        endTime: ''
+        endTime: '',
     });
 
     const handleChange = (evt) => {
