@@ -36,7 +36,7 @@ function NewSlot() {
                     <label htmlFor="startTime">Start Time:</label>
                     <input 
                     onChange={handleChange}
-                    type="number"
+                    type="time"
                     name="startTime"
                     id="startTime"
                     placeholder="Start Time"
@@ -48,7 +48,7 @@ function NewSlot() {
                     <label htmlFor="endTime">End Time:</label>
                     <input 
                     onChange={handleChange}
-                    type="number"
+                    type="time"
                     name="endTime"
                     id="endTime"
                     placeholder="End Time"

@@ -6,7 +6,7 @@ function Slots() {
 
     const [slotList, setSlotList] = useState([]);
 
-    const getServiceList = () => {
+    const getSlotList = () => {
         axios.get(`http://localhost:8080/slots/`)
         .then(res => {
           console.log(res);

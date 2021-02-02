@@ -20,7 +20,7 @@ const SlotDetails = () => {
     }
     return (
         <div>
-            <h4>{slot.id}</h4>
+            {/* <h4>{slot.id}</h4> */}
             <p>{slot.startTime}</p>
             <p>{slot.endTime}</p>
         </div>
