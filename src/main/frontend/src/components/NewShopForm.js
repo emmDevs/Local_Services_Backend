@@ -94,7 +94,7 @@ function NewShopForm() {
                     <label htmlFor="openingHour">Opening Hour:</label>
                     <input
                     onChange={handleChange}
-                    type="datetime-local"
+                    type="time"
                     name="openingHour"
                     id="openingHour"
                     value={formData.openingHour}
@@ -105,7 +105,7 @@ function NewShopForm() {
                     <label htmlFor="closingHour">Closing Hour:</label>
                     <input
                     onChange={handleChange}
-                    type="datetime-local"
+                    type="time"
                     name="closingHour"
                     id="closingHour"
                     value={formData.closingHour}
