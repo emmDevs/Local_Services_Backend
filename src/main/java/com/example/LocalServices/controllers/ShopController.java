@@ -59,9 +59,9 @@ public class ShopController {
         shopToUpdate.setAddress(shop.getAddress());
         shopToUpdate.setPostcode(shop.getPostcode());
         shopToUpdate.setTown(shop.getTown());
-        shopToUpdate.setOpening_hour(shop.getOpening_hour());
-        shopToUpdate.setClosing_hour(shop.getClosing_hour());
-        shopToUpdate.setTelephone_number(shop.getTelephone_number());
+        shopToUpdate.setOpeningHour(shop.getOpeningHour());
+        shopToUpdate.setClosingHour(shop.getClosingHour());
+        shopToUpdate.setTelephoneNumber(shop.getTelephoneNumber());
         shopToUpdate.setEmail(shop.getEmail());
         shopToUpdate.setImage(shop.getImage());
         shopRepository.save(shopToUpdate);

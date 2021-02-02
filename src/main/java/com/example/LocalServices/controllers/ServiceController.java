@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 public class ServiceController {
 
@@ -61,7 +62,7 @@ public class ServiceController {
         serviceToUpdate.setCategories(service.getCategories());
         serviceToUpdate.setSlots(service.getSlots());
         serviceToUpdate.setBookings(service.getBookings());
-        serviceToUpdate.setShop(service.getShop());
+        serviceToUpdate.setShops(service.getShops());
         serviceRepository.save(serviceToUpdate);
         return new ResponseEntity<>(serviceToUpdate, HttpStatus.OK);
     }
