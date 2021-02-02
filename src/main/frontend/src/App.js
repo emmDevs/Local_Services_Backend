@@ -14,12 +14,12 @@ import CategoryDetails from "./components/CategoryDetails";
 import Services from "./components/Services";
 import ServiceDetails from "./components/ServiceDetails";
 import Bookings from "./components/Bookings";
-// import BookingDetails from "./components/BookingDetails";
+import BookingDetails from "./components/BookingDetails";
 import NewUser from "./components/NewUser";
 import NewShop from "./components/NewShop";
 import NewCategory from "./components/NewCategory";
 import NewService from "./components/NewService";
-// import NewBooking from "./components/NewBooking";
+import NewBooking from "./components/NewBooking";
 import Basket from "./components/Basket";
 import Footer from "./components/Footer";
 
@@ -49,12 +49,12 @@ function App() {
         <Route path="/service" component={Services} exact/>
         <Route path="/service/:serviceId" component={ServiceDetails}/>
         <Route path="/booking/" component={Bookings} exact/>
-        {/* <Route path="/booking/:bookingId" component={BookingDetails}/> */}
+        <Route path="/booking/:bookingId" component={BookingDetails}/>
         <Route path="/new-user" component={NewUser}/>
         <Route path="/new-shop" component={NewShop}/>
         <Route path="/new-category" component={NewCategory}/>
         <Route path="/new-service" component={NewService}/>
-        {/* <Route path="/new-booking" component={NewBooking}/> */}
+        <Route path="/new-booking" component={NewBooking}/>
         <Route path="/basket" component={Basket}/>
         
         
