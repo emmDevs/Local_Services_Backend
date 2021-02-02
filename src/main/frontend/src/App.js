@@ -9,14 +9,13 @@ import User from "./components/User";
 import UserDetails from "./components/UserDetails";
 import Shop from "./components/Shop";
 import ShopDetails from "./components/ShopDetails";
+import Categories from "./components/Categories";
+import CategoryDetails from "./components/CategoryDetails";
 import NewUser from "./components/NewUser";
 import NewShop from "./components/NewShop";
+import NewCategory from "./components/NewCategory";
 import Basket from "./components/Basket";
 import Footer from "./components/Footer";
-
-
-import Categories from "./components/Categories";
-import NewCategory from "./components/NewCategory";
 
 
 
@@ -39,7 +38,8 @@ function App() {
         <Route path="/user/:userId" component={UserDetails}/>
         <Route path="/shop" component={Shop} exact/>
         <Route path="/shop/:shopId" component={ShopDetails}/>
-        <Route path="/category" component={Categories}/>
+        <Route path="/category" component={Categories} exact/>
+        <Route path="/category/:categoryId" component={CategoryDetails}/>
         <Route path="/new-user" component={NewUser}/>
         <Route path="/new-shop" component={NewShop}/>
         <Route path="/new-category" component={NewCategory}/>
