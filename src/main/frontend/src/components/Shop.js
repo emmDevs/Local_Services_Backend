@@ -45,7 +45,7 @@ const Shop = () => {
   return(
     <div>
       <h3>Shop Component</h3>
-      <Link to="/new-form"><button className="btn">Create New Profile</button></Link>
+      <Link to="/new-shop"><button className="btn">Create New Profile</button></Link>
       {shopList
         ? shopList.map((shop, index) => {
           return(

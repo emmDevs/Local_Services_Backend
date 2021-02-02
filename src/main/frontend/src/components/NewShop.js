@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-function NewShopForm() {
+function NewShop() {
     const [formData, setFormData] = useState({
         name: '',
         address: '',
@@ -179,4 +179,4 @@ function NewShopForm() {
 
 }
 
-export default NewShopForm;
+export default NewShop;

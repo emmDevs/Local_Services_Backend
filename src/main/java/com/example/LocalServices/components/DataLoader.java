@@ -93,10 +93,10 @@ public class DataLoader implements ApplicationRunner {
         Slot slot12 = new Slot(LocalTime.parse("13:30"), LocalTime.parse("14:30"), service3);
         slotRepository.save(slot12);
 
-        User user1 = new User("Emma", "Hack", 21, "73 Beach Road", "EH42 7HG", "Dunbar", 01562310544, "emma@gmail.com", "ILoveCoding", false);
+        User user1 = new User("Emma", "Hack", 21, "73 Beach Road", "EH42 7HG", "Dunbar", "01562310544", "emma@gmail.com", "ILoveCoding", false);
         userRepository.save(user1);
 
-        User user2 = new User("Claire", "Smith", 35, "123 High Street", "EH42 1FA", "Dunbar", 01314761234, "claire@thecobblers.co.uk", "ILoveShoes", true);
+        User user2 = new User("Claire", "Smith", 35, "123 High Street", "EH42 1FA", "Dunbar", "01314761234", "claire@thecobblers.co.uk", "ILoveShoes", true);
         userRepository.save(user2);
 
         Booking booking1 = new Booking("2021-01-25", "2021-01-30", 1030, 1130, "1 pair of brown leather boots to be re- heeled and re-soled please", user1);
