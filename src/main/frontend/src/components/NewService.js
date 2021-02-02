@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 
-function NewCategory() {
+function NewService() {
     const [formData, setFormData] = useState({
         name: '',
         description: '',
-        image: ''
+        price: '',
+        duration: ''
     });
 
     const handleChange = (evt) => {
@@ -19,19 +20,19 @@ function NewCategory() {
     }
 
     const onFormSubmit = function(){
-        fetch("http://localhost:8080/categories/", {
+        fetch("http://localhost:8080/services/", {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
               'Content-Type': 'application/json'
             }
         })
-        .then(() => window.location = "/category")
+        .then(() => window.location = "/service")
     }
     
     return(
         <div>
-            <h3>Create New Category</h3>
+            <h3>Create New Service</h3>
             <form>
                 <div className="form_wrap">
                     <label htmlFor="name">Name:</label>
@@ -58,14 +59,26 @@ function NewCategory() {
                 </div>
 
                 <div className="form_wrap">
-                    <label htmlFor="image">Image:</label>
+                    <label htmlFor="price">Price:</label>
                     <input 
                     onChange={handleChange}
-                    type="text"
-                    name="image"
-                    id="image"
-                    placeholder="Image"
-                    value={formData.image}
+                    type="number"
+                    name="price"
+                    id="price"
+                    placeholder="Price"
+                    value={formData.price}
+                    required/>
+                </div>
+
+                <div className="form_wrap">
+                    <label htmlFor="duration">Duration:</label>
+                    <input 
+                    onChange={handleChange}
+                    type="number"
+                    name="duration"
+                    id="duration"
+                    placeholder="Duration"
+                    value={formData.duration}
                     required/>
                 </div>
 
@@ -77,4 +90,4 @@ function NewCategory() {
 }
 
 
-export default NewCategory;
+export default NewService;
