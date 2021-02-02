@@ -10,6 +10,8 @@ import Basket from "./components/Basket";
 import Footer from "./components/Footer";
 import NewShopForm from "./components/NewShopForm";
 import ShopDetails from './components/ShopDetails';
+import Categories from "./components/Categories";
+import NewCategory from "./components/NewCategory";
 
 
 
@@ -29,9 +31,11 @@ function App() {
         <Route path="/search" component={Search}/>
         <Route path="/about" component={About}/>  
         <Route path="/shop" component={Shop} exact/>
+        <Route path="/shop/:shopId" component={ShopDetails}/>
         <Route path="/new-form" component={NewShopForm}/>
         <Route path="/basket" component={Basket}/>
-        <Route path="/shop/:shopId" component={ShopDetails}/>
+        <Route path="/category" component={Categories}/>
+        <Route path="/new-category" component={NewCategory}/>
       </Switch>
       <Footer/> 
 	  </Router>

@@ -36,7 +36,7 @@ function NewShopForm() {
             }
         })
         .then(() => window.location = "/shop")
-      }
+    }
 
     return(
         <div>
