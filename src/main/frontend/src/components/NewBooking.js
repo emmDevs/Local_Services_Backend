@@ -39,6 +39,14 @@ function NewBooking() {
         setFormData(newState);
     }
 
+    const handleUser = function(event){
+        const index = parseInt(event.target.value)
+        const selectedUser = userList[index]
+        let copiedBooking = {...formData};
+        copiedBooking['user'] = selectedUser
+        setFormData(copiedBooking)
+    }
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
         onFormSubmit(formData);
@@ -61,11 +69,12 @@ function NewBooking() {
         <div>
             <h3>Create new booking</h3>
             <p>Select user</p>
-            <form>
-    <select name="user" defaultValue="select-user">
-    {userOptions}
-    </select>
-    <p></p>
+    <form onSubmit={handleSubmit}>
+        <select name="user" onChange={handleUser} defaultValue="select-user">
+            <option disabled value='select-user'>Select a user</option>
+            {userOptions}
+        </select>
+        <p></p>
     <label htmlFor="comments">Comments:</label><p></p>
         <input 
         onChange={handleChange}
@@ -75,7 +84,7 @@ function NewBooking() {
         placeholder=""
         value={formData.comments}
         required/><p></p>
-        <input onClick={handleSubmit} type="submit" value="submit" />
+        <button type="submit">Submit</button>
     </form>
         </div>
     )
