@@ -2,6 +2,7 @@ package com.example.LocalServices.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class User {
     @Column(name = "access")
     private Boolean access;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade =CascadeType.ALL, mappedBy = "user")
     @JsonIgnoreProperties({"user"})
     private List<Booking> bookings;
 
@@ -161,5 +162,9 @@ public class User {
 
     public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
+    }
+
+    public void addBooking(Booking booking){
+        this.bookings.add(booking);
     }
 }

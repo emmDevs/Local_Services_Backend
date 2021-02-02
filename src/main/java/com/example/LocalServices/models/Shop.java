@@ -30,13 +30,13 @@ public class Shop {
     private String town;
 
     @Column(name="opening_hour")
-    private Time opening_hour;
+    private String openingHour;
 
     @Column(name="closing_hour")
-    private Time closing_hour;
+    private String closingHour;
 
     @Column(name="telephone_number")
-    private int telephone_number;
+    private int telephoneNumber;
 
     @Column(name="email")
     private String email;
@@ -44,9 +44,6 @@ public class Shop {
     @Column(name="image")
     private String image;
 
-    @OneToMany(mappedBy = "shop")
-    @JsonIgnoreProperties({"shop"})
-    private List<Service> services;
 
     @ManyToMany
     @JsonIgnoreProperties({"shop"})
@@ -70,18 +67,40 @@ public class Shop {
     )
     private List<Category> categories;
 
+    @ManyToMany
+    @JsonIgnoreProperties({"shop"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "shops_services",
+            joinColumns = {
+                    @JoinColumn(
+                            name="shop_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "service_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            }
+    )
+    private List<Service> services;
+
     public Shop(){
 
     }
 
-    public Shop(String name, String address, String postcode, String town, Time opening_hour, Time closing_hour, int telephone_number, String email, String image){
+    public Shop(String name, String address, String postcode, String town, String openingHour, String closingHour, int telephoneNumber, String email, String image){
         this.name = name;
         this.address = address;
         this.postcode = postcode;
         this.town = town;
-        this.opening_hour = opening_hour;
-        this.closing_hour = closing_hour;
-        this.telephone_number = telephone_number;
+        this.openingHour = openingHour;
+        this.closingHour = closingHour;
+        this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.image = image;
         this.categories = new ArrayList<Category>();
@@ -128,28 +147,28 @@ public class Shop {
         this.town = town;
     }
 
-    public Time getOpening_hour() {
-        return opening_hour;
+    public String getOpening_hour() {
+        return openingHour;
     }
 
-    public void setOpening_hour(Time opening_hour) {
-        this.opening_hour = opening_hour;
+    public void setOpening_hour(String openingHour) {
+        this.openingHour = openingHour;
     }
 
-    public Time getClosing_hour() {
-        return closing_hour;
+    public String getClosing_hour() {
+        return closingHour;
     }
 
-    public void setClosing_hour(Time closing_hour) {
-        this.closing_hour = closing_hour;
+    public void setClosing_hour(String closingHour) {
+        this.closingHour = closingHour;
     }
 
     public int getTelephone_number() {
-        return telephone_number;
+        return telephoneNumber;
     }
 
-    public void setTelephone_number(int telephone_number) {
-        this.telephone_number = telephone_number;
+    public void setTelephone_number(int telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
     public String getEmail() {
@@ -176,11 +195,19 @@ public class Shop {
         this.services = services;
     }
 
+    public void addService(Service service){
+        this.services.add(service);
+    }
+
     public List<Category> getCategories() {
         return categories;
     }
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public void addCategory(Category category){
+        this.categories.add(category);
     }
 }

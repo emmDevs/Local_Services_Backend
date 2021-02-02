@@ -27,13 +27,13 @@ public class Service {
     @Column(name="duration")
     private int duration;
 
-    @OneToMany(mappedBy = "service")
-    @JsonIgnoreProperties({"service"})
+    @OneToMany(cascade =CascadeType.ALL, mappedBy = "services")
+    @JsonIgnoreProperties({"services"})
     private List<Booking> bookings;
 
     @ManyToMany
-    @JsonIgnoreProperties({"service"})
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JsonIgnoreProperties({"services"})
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinTable(
             name = "services_categories",
             joinColumns = {
@@ -53,14 +53,31 @@ public class Service {
     )
     private List<Category> categories;
 
-    @OneToMany(mappedBy = "service")
+
+    @OneToMany(cascade =CascadeType.ALL, mappedBy = "service")
     @JsonIgnoreProperties({"service"})
     private List<Slot> slots;
 
-    @ManyToOne
-    @JoinColumn(name="Shop_id", nullable = false)
-    @JsonIgnoreProperties({"services"})
-    private Shop shop;
+    @ManyToMany
+    @JsonIgnoreProperties({"service"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(
+                            name="service_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "shop_id",
+                            nullable = false,
+                            updatable = false
+                    )
+            }
+    )
+    private List<Shop> shops;
 
     public Service(){
 
@@ -74,7 +91,7 @@ public class Service {
         this.categories = new ArrayList<Category>();
         this.slots = new ArrayList<Slot>();
         this.bookings = new ArrayList<Booking>();
-        this.shop = shop;
+        this.shops = new ArrayList<Shop>();
     }
 
     public Long getId() {
@@ -125,12 +142,20 @@ public class Service {
         this.bookings = bookings;
     }
 
+    public void addBooking(Booking booking){
+        this.bookings.add(booking);
+    }
+
     public List<Category> getCategories() {
         return categories;
     }
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public void addCategory(Category category){
+        this.categories.add(category);
     }
 
     public List<Slot> getSlots() {
@@ -141,13 +166,16 @@ public class Service {
         this.slots = slots;
     }
 
-    public Shop getShop() {
-        return shop;
-    }
-
-    public void setShop(Shop shop) {
-        this.shop = shop;
+    public void addSlots(Slot slot){
+        this.slots.add(slot);
     }
 
 
+    public List<Shop> getShops() {
+        return shops;
+    }
+
+    public void setShops(List<Shop> shops) {
+        this.shops = shops;
+    }
 }
