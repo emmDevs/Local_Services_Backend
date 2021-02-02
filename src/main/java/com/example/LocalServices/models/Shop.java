@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,13 +31,13 @@ public class Shop {
     private String town;
 
     @Column(name="opening_hour")
-    private String openingHour;
+    private LocalTime openingHour;
 
     @Column(name="closing_hour")
-    private String closingHour;
+    private LocalTime closingHour;
 
     @Column(name="telephone_number")
-    private int telephoneNumber;
+    private String telephoneNumber;
 
     @Column(name="email")
     private String email;
@@ -93,7 +94,7 @@ public class Shop {
 
     }
 
-    public Shop(String name, String address, String postcode, String town, String openingHour, String closingHour, int telephoneNumber, String email, String image){
+    public Shop(String name, String address, String postcode, String town, LocalTime openingHour, LocalTime closingHour, String telephoneNumber, String email, String image){
         this.name = name;
         this.address = address;
         this.postcode = postcode;
@@ -147,27 +148,27 @@ public class Shop {
         this.town = town;
     }
 
-    public String getOpening_hour() {
+    public LocalTime getOpeningHour() {
         return openingHour;
     }
 
-    public void setOpening_hour(String openingHour) {
+    public void setOpeningHour(LocalTime openingHour) {
         this.openingHour = openingHour;
     }
 
-    public String getClosing_hour() {
+    public LocalTime getClosingHour() {
         return closingHour;
     }
 
-    public void setClosing_hour(String closingHour) {
+    public void setClosingHour(LocalTime closingHour) {
         this.closingHour = closingHour;
     }
 
-    public int getTelephone_number() {
+    public String getTelephoneNumber() {
         return telephoneNumber;
     }
 
-    public void setTelephone_number(int telephoneNumber) {
+    public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
     }
 
