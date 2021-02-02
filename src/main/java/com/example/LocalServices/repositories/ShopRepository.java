@@ -15,5 +15,7 @@ public interface ShopRepository extends JpaRepository<Shop, Long> {
 
     List<Shop> findByNameIgnoreCase(String name);
 
+    List<Shop> findByServicesNameIgnoreCase(String name);
+
 
 }

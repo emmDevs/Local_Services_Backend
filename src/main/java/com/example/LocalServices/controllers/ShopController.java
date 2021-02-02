@@ -34,7 +34,8 @@ public class ShopController {
     public ResponseEntity getAllShopsAndFilters(
             @RequestParam(required = false, name = "town") String town,
             @RequestParam(required = false, name = "categoryName") String categoryName,
-            @RequestParam(required = false, name = "name") String shopName
+            @RequestParam(required = false, name = "name") String shopName,
+            @RequestParam(required = false, name = "serviceName") String serviceName
 
     ){
         if(town != null){
@@ -47,6 +48,10 @@ public class ShopController {
 
         if(shopName != null){
             return new ResponseEntity(shopRepository.findByNameIgnoreCase(shopName), HttpStatus.OK);
+        }
+
+        if(serviceName != null){
+            return new ResponseEntity(shopRepository.findByServicesNameIgnoreCase(serviceName), HttpStatus.OK);
         }
 
         return new ResponseEntity(shopRepository.findAll(), HttpStatus.OK);
