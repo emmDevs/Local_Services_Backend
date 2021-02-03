@@ -32,7 +32,7 @@ function NewShop() {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
-              'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
             }
         })
         .then(() => window.location = "/shop")
