@@ -20,7 +20,7 @@ function App() {
   const AppStyle = styled.div`
     height: 100vh;
     width: 100vw;
-    background-color: #f2f7ff;
+    background-color: #e3e3e3;
   `;
 
   return (

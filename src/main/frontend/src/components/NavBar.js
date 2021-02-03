@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import basket from "../assets/shopping-basket.png"
-import Logo from "../assets/ShLogo.png"
+import logo from "../assets/Logo.png"
 
 
 
@@ -14,11 +14,10 @@ function NavBar() {
         flex-direction: row;
         flex-grow: 1;
         height: 110px;
-        background-image: linear-gradient(aqua, transparent);
     `;
 
     const Text = styled.p`
-        color: grey;
+        color: #333333;
         text-decoration: none;
 
         :hover {
@@ -31,21 +30,23 @@ function NavBar() {
         list-style: none;
         padding: 15px;
         text-decoration: none;
-        font-family: sans-serif;
+        font-family: Didot, sans-serif;
         font-size: 25px;
     `;
 
     const Img = styled.img`
         padding: 15px;
         position: relative;
-        top: 10px;
-        height: 25px;
+        top: 5px;
+        height: 30px;
         width: auto;
         margin-right: 50px;
     `;
 
-    const Img_2 = styled.img`
-    height: 200px;
+    const Logo = styled.img`
+    top: 5px;
+    left: 5px;
+    height: 100px;
     width: auto;
     position: absolute;
     `;
@@ -59,7 +60,7 @@ function NavBar() {
 
     return(
         <Header>
-            <Link style={{Text}} to="/"><Img_2 src={Logo} alt="logo"></Img_2></Link>
+            <Link style={{Text}} to="/"><Logo src={logo} alt="logo"></Logo></Link>
 
             <Ul>
                 <Li>

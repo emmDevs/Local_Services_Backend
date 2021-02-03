@@ -3,30 +3,32 @@ import styled from 'styled-components';
 
 function Search() {
 
-    const SearchLabel = styled.label`
-        font-family: sans-serif;
-        font-size: 24px;
-        margin: 10px;
-        padding: 0;
-        position: relative;
-        left: 0;
-    `;
+    
 
     const SearchInput = styled.input`
-        border-radius: 20px;
-        height: 30px;
-        width: 15rem;
-        margin-top: 8px;
+        align-self: center;
+        border: none;
+        margin: auto;
+        margin-top: 200px;
+        left: 30%;
+        border-radius: 90px;
+        height: 100px;
+        width: 60rem;
+        z-index: 1;
 
         ::placeholder {
-            color: blue;
+            position: relative;
+            color: #333333;
+            font-size: 50px;
+            font-family: Didot, sans-serif;
+            left: 20px;
+            top: 10px;            
         }
     `;
 
 
     return(
         <>
-        <SearchLabel for="search">Search Services:</SearchLabel>
         <SearchInput type="text" id="search" placeholder="Look for a service"></SearchInput>
         </>
     )

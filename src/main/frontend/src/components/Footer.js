@@ -9,21 +9,48 @@ function Footer() {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    background-image: linear-gradient(transparent, aqua);
     position: absolute;
     bottom: 0;
     `;
 
-    const FooterList = styled.a`
+    const FooterList1 = styled.a`
+        position: relative;
+        margin-left: auto;
         padding: 20px;
-        justify-content: right;
+        right: 0;
+        color: #333333;
+        font-family: Didot, sans-serif;
+        font-size: 25px;
+    `;
+
+    const FooterList2 = styled.a`
+    position: relative;
+    padding: 20px;
+    right: 0;
+    color: #333333;
+    font-family: Didot, sans-serif;
+    font-size: 25px;
+    `;
+
+    const Slogan = styled.p`
+    position: relative;
+    padding: 0;
+    justify-content: right;
+    color: #333333;
+    font-family: Didot, sans-serif;
+    font-size: 25px;
+    top: -40px;
+    left: 10px;
     `;
 
 
     return(
         <Footer>
-            <FooterList href="/">Contact</FooterList>
-            <FooterList href="/">Project Brief</FooterList>
+            <Slogan>Shop Quality. Shop Friendly. Shop Local.</Slogan>
+
+            <FooterList1 href="/">Contact</FooterList1>
+            
+            <FooterList2 href="/">Project Brief</FooterList2>
 
         </Footer>
     )
