@@ -25,7 +25,6 @@ import NewBooking from "./components/NewBooking";
 import NewSlot from "./components/NewSlot";
 import Basket from "./components/Basket";
 import Footer from "./components/Footer";
-// import NewShopForm from "./components/NewShopForm";
 import styled from 'styled-components';
 
 
@@ -59,11 +58,14 @@ function App() {
             <Route path="/service/:serviceId" component={ServiceDetails}/>
             <Route path="/booking/" component={Bookings} exact/>
             <Route path="/booking/:bookingId" component={BookingDetails}/>
+            <Route path="/slot" component={Slots} exact/>
+            <Route path="/slot/:slotId" component={SlotDetails}/>
             <Route path="/new-user" component={NewUser}/>
             <Route path="/new-shop" component={NewShop}/>
             <Route path="/new-category" component={NewCategory}/>
             <Route path="/new-service" component={NewService}/>
             <Route path="/new-booking" component={NewBooking}/>
+            <Route path="/new-slot" component={NewSlot}/>
             <Route path="/basket" component={Basket}/>
             
             
