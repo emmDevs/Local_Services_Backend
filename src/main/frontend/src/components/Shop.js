@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 // import NewShopForm from "./NewShopForm";
-import ShopDetails from "./ShopDetails";
+// import ShopDetails from "./ShopDetails";
 
 
 
@@ -45,7 +45,7 @@ const Shop = () => {
   return(
     <div>
       <h3>Shop Component</h3>
-      <Link to="/new-form"><button className="btn">Create New Profile</button></Link>
+      <Link to="/new-shop"><button className="btn">Create New Profile</button></Link>
       {shopList
         ? shopList.map((shop, index) => {
           return(

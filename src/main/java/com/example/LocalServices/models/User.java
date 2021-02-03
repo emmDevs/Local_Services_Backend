@@ -2,6 +2,7 @@ package com.example.LocalServices.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class User {
     private String town;
 
     @Column(name = "telephone_number")
-    private int telephoneNumber;
+    private String telephoneNumber;
 
     @Column(name = "email")
     private String email;
@@ -45,7 +46,7 @@ public class User {
     @Column(name = "access")
     private Boolean access;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade =CascadeType.ALL, mappedBy = "user")
     @JsonIgnoreProperties({"user"})
     private List<Booking> bookings;
 
@@ -53,7 +54,7 @@ public class User {
 
     }
 
-    public User(String firstName, String lastName, int age, String address, String postcode, String town, int telephoneNumber, String email, String password, Boolean access){
+    public User(String firstName, String lastName, int age, String address, String postcode, String town, String telephoneNumber, String email, String password, Boolean access){
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -123,11 +124,11 @@ public class User {
         this.town = town;
     }
 
-    public int getTelephoneNumber() {
+    public String getTelephoneNumber() {
         return telephoneNumber;
     }
 
-    public void setTelephoneNumber(int telephoneNumber) {
+    public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
     }
 

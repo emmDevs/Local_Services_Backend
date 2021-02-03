@@ -13,6 +13,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
+@CrossOrigin("*")
+@RestController
 public class SlotController {
 
     @Configuration
@@ -38,7 +40,7 @@ public class SlotController {
         return new ResponseEntity(slotRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/slots")
+    @PostMapping(value = "/slots")
     public ResponseEntity<Slot> postSlot(@RequestBody Slot slot){
         slotRepository.save(slot);
         return new ResponseEntity<>(slot, HttpStatus.CREATED);
@@ -48,6 +50,15 @@ public class SlotController {
     public ResponseEntity<Long> deleteSlot(@PathVariable Long id){
         slotRepository.deleteById(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
+    @PutMapping(value ="/slots/{id}")
+    public ResponseEntity<Slot> updateSlot(@RequestBody Slot slot, @PathVariable Long id){
+        Slot slotToUpdate = slotRepository.findById(id).get();
+        slotToUpdate.setStartTime(slot.getStartTime());
+        slotToUpdate.setEndTime(slot.getEndTime());
+        slotRepository.save(slotToUpdate);
+        return new ResponseEntity<>(slotToUpdate, HttpStatus.OK);
     }
 
 }
