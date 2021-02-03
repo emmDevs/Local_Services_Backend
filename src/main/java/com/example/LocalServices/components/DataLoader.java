@@ -100,7 +100,7 @@ public class DataLoader implements ApplicationRunner {
         User user2 = new User("Claire", "Smith", 35, "123 High Street", "EH42 1FA", "Dunbar", "01314761234", "claire@thecobblers.co.uk", "ILoveShoes", true);
         userRepository.save(user2);
 
-        Booking booking1 = new Booking(LocalDate.parse("2021-01-25"), LocalDate.parse("2021-01-30"), LocalTime.parse("10:30"), LocalTime.parse("11:30"), "1 pair of brown leather boots to be re- heeled and re-soled please", user1);
+        Booking booking1 = new Booking(LocalDate.parse("2021-01-15"), LocalDate.parse("2021-01-30"), LocalTime.parse("10:30"), LocalTime.parse("11:30"), "1 pair of brown leather boots to be re- heeled and re-soled please", user1);
         bookingRepository.save(booking1);
 
         Booking booking2 = new Booking(LocalDate.parse("2021-01-05"), LocalDate.parse("2021-02-06"), LocalTime.parse("13:00"), LocalTime.parse("14:30"), "facial for dry skin and a luxury manicure please", user2);
