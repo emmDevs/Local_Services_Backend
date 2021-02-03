@@ -4,6 +4,7 @@ import com.example.LocalServices.models.Booking;
 import com.example.LocalServices.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.AntPathMatcher;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -31,7 +33,22 @@ public class BookingController {
     BookingRepository bookingRepository;
 
     @GetMapping(value = "/bookings")
-    public ResponseEntity<List<Booking>> getAllBookings(){
+    public ResponseEntity<List<Booking>> getAllBookingsAndFilters(
+            @RequestParam(required = false, value = "firstName") String firstName,
+            @RequestParam(required = false, value = "lastName") String lastName,
+            @RequestParam(required = false, value = "dateOfBooking")@DateTimeFormat(
+                    iso = DateTimeFormat.ISO.DATE)LocalDate dateOfBooking
+            ){
+
+        if(firstName != null && lastName != null){
+            return new ResponseEntity<>(bookingRepository.findByUserFirstNameAndUserLastNameIgnoreCase(firstName, lastName), HttpStatus.OK);
+        }
+
+        if(dateOfBooking != null){
+            return new ResponseEntity<>(bookingRepository.findByDateOfBooking(dateOfBooking), HttpStatus.OK);
+        }
+
+
         return new ResponseEntity(bookingRepository.findAll(), HttpStatus.OK);
     }
 

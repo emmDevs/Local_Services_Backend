@@ -31,7 +31,29 @@ public class ShopController {
     ShopRepository shopRepository;
 
     @GetMapping(value = "/shops")
-    public ResponseEntity<List<Shop>> getAllShops(){
+    public ResponseEntity getAllShopsAndFilters(
+            @RequestParam(required = false, name = "town") String town,
+            @RequestParam(required = false, name = "categoryName") String categoryName,
+            @RequestParam(required = false, name = "name") String shopName,
+            @RequestParam(required = false, name = "serviceName") String serviceName
+
+    ){
+        if(town != null){
+            return new ResponseEntity<>(shopRepository.findByTownIgnoreCase(town), HttpStatus.OK);
+        }
+
+        if(categoryName != null){
+            return new ResponseEntity(shopRepository.findByCategoriesNameIgnoreCase(categoryName), HttpStatus.OK);
+        }
+
+        if(shopName != null){
+            return new ResponseEntity(shopRepository.findByNameIgnoreCase(shopName), HttpStatus.OK);
+        }
+
+        if(serviceName != null){
+            return new ResponseEntity(shopRepository.findByServicesNameIgnoreCase(serviceName), HttpStatus.OK);
+        }
+
         return new ResponseEntity(shopRepository.findAll(), HttpStatus.OK);
     }
 

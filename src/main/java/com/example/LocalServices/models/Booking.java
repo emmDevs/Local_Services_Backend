@@ -5,6 +5,8 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,16 +20,16 @@ public class Booking {
     private Long id;
 
     @Column(name = "date_booking_made")
-    private String dateBookingMade;
+    private LocalDate dateBookingMade;
 
-    @Column(name="date_of_booking")
-    private String dateOfBooking;
+    @Column(name="dateOfBooking")
+    private LocalDate dateOfBooking;
 
     @Column(name = "arrival_time")
-    private int arrivalTime;
+    private LocalTime arrivalTime;
 
     @Column(name="departure_time")
-    private int departureTime;
+    private LocalTime departureTime;
 
     @Column(name="comments")
     private String comments;
@@ -64,7 +66,7 @@ public class Booking {
 
     }
 
-    public Booking(String dateBookingMade, String dateOfBooking, int arrivalTime, int departureTime, String comments, User user){
+    public Booking(LocalDate dateBookingMade, LocalDate dateOfBooking, LocalTime arrivalTime, LocalTime departureTime, String comments, User user){
         this.dateBookingMade = dateBookingMade;
         this.dateOfBooking = dateOfBooking;
         this.arrivalTime = arrivalTime;
@@ -82,35 +84,35 @@ public class Booking {
         this.id = id;
     }
 
-    public String getDate_booking_made() {
+    public LocalDate getDate_booking_made() {
         return dateBookingMade;
     }
 
-    public void setDate_booking_made(String dateBookingMade) {
+    public void setDate_booking_made(LocalDate dateBookingMade) {
         this.dateBookingMade = dateBookingMade;
     }
 
-    public String getDate_of_booking() {
+    public LocalDate getDate_of_booking() {
         return dateOfBooking;
     }
 
-    public void setDate_of_booking(String dateOfBooking) {
+    public void setDate_of_booking(LocalDate dateOfBooking) {
         this.dateOfBooking = dateOfBooking;
     }
 
-    public int getArrival_time() {
+    public LocalTime getArrival_time() {
         return arrivalTime;
     }
 
-    public void setArrival_time(int arrivalTime) {
+    public void setArrival_time(LocalTime arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    public int getDeparture_time() {
+    public LocalTime getDeparture_time() {
         return departureTime;
     }
 
-    public void setDeparture_time(int departureTime) {
+    public void setDeparture_time(LocalTime departureTime) {
         this.departureTime = departureTime;
     }
 
