@@ -1,22 +1,4 @@
-<<<<<<< HEAD
-import React from "react";
-import styled from 'styled-components';
-
-function Categories() {
-
-    const CategoryLabel = styled.label`
-        font-family: sans-serif;
-        font-size: 24px;
-        margin: 10px;
-        padding: 0;
-        position: relative;
-        left: 0;
-    `;
-
-
-    return(
-        <CategoryLabel>List of Categories</CategoryLabel>
-=======
+import styled from 'styled-components';    
 import React, {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
@@ -28,19 +10,30 @@ function Categories() {
     const getCategoryList = () => {
         axios.get(`http://localhost:8080/categories/`)
         .then(res => {
-          console.log(res);
-          setCategoryList(res.data)
+        console.log(res);
+        setCategoryList(res.data)
         });
-      };
+    };
     
-      useEffect(() => {
+    useEffect(() => {
         getCategoryList();
-      }, []);
+    }, []);
+
+    
+
+        const CategoryLabel = styled.label`
+            font-family: sans-serif;
+            font-size: 24px;
+            margin: 10px;
+            padding: 0;
+            position: relative;
+            left: 0;
+        `;
 
 
     return(
         <div>
-            <h3>Category Component</h3>
+
             <Link to="/new-category"><button className="btn">Add Category</button></Link>
             {categoryList
                 ? categoryList.map((category, index) => {
@@ -52,7 +45,6 @@ function Categories() {
                 })
                 : "Loading..."}
         </div>
->>>>>>> frontend
     )
 }
 

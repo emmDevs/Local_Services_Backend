@@ -9,12 +9,13 @@ function Search() {
         align-self: center;
         border: none;
         margin: auto;
-        margin-top: 200px;
+        margin-top: 230px;
         left: 30%;
         border-radius: 90px;
         height: 100px;
         width: 60rem;
         z-index: 1;
+        opacity: 0.9;
 
         ::placeholder {
             position: relative;

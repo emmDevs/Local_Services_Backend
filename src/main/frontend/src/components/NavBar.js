@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import basket from "../assets/shopping-basket.png"
 import logo from "../assets/Logo.png"
+import Categories from '../components/Categories'
 
 
 
@@ -61,6 +62,10 @@ function NavBar() {
     return(
         <Header>
             <Link style={{Text}} to="/"><Logo src={logo} alt="logo"></Logo></Link>
+
+            <Categories/>
+
+            
 
             <Ul>
                 <Li>

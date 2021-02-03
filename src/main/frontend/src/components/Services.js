@@ -27,7 +27,7 @@ function Services() {
                 ? serviceList.map((service, index) => {
                 return(
                     <div key={index}>
-                    <Link to={`/service/${service.id}`}><button>{service.name}</button></Link>
+                      <Link to={`/service/${service.id}`}><button>{service.name}</button></Link>
                     </div>
                 );
                 })

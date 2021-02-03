@@ -22,8 +22,7 @@ import NewService from "./components/NewService";
 import NewBooking from "./components/NewBooking";
 import Basket from "./components/Basket";
 import Footer from "./components/Footer";
-import NewShopForm from "./components/NewShopForm";
-import ShopDetails from './components/ShopDetails';
+// import NewShopForm from "./components/NewShopForm";
 import styled from 'styled-components';
 
 
@@ -39,35 +38,35 @@ function App() {
 
   return (
     <AppStyle>
-    <Router>
-        
-          <NavBar/>
+      <Router>
+          
+            <NavBar/>
 
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/search" component={Search}/>
-        <Route path="/about" component={About}/>
-        <Route path="/user" component={User} exact/>
-        <Route path="/user/:userId" component={UserDetails}/>
-        <Route path="/shop" component={Shop} exact/>
-        <Route path="/shop/:shopId" component={ShopDetails}/>
-        <Route path="/category" component={Categories} exact/>
-        <Route path="/category/:categoryId" component={CategoryDetails}/>
-        <Route path="/service" component={Services} exact/>
-        <Route path="/service/:serviceId" component={ServiceDetails}/>
-        <Route path="/booking/" component={Bookings} exact/>
-        <Route path="/booking/:bookingId" component={BookingDetails}/>
-        <Route path="/new-user" component={NewUser}/>
-        <Route path="/new-shop" component={NewShop}/>
-        <Route path="/new-category" component={NewCategory}/>
-        <Route path="/new-service" component={NewService}/>
-        <Route path="/new-booking" component={NewBooking}/>
-        <Route path="/basket" component={Basket}/>
-        
-        
-      </Switch>
-      <Footer/> 
-	  </Router>
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route path="/search" component={Search}/>
+            <Route path="/about" component={About}/>
+            <Route path="/user" component={User} exact/>
+            <Route path="/user/:userId" component={UserDetails}/>
+            <Route path="/shop" component={Shop} exact/>
+            <Route path="/shop/:shopId" component={ShopDetails}/>
+            <Route path="/category" component={Categories} exact/>
+            <Route path="/category/:categoryId" component={CategoryDetails}/>
+            <Route path="/service" component={Services} exact/>
+            <Route path="/service/:serviceId" component={ServiceDetails}/>
+            <Route path="/booking/" component={Bookings} exact/>
+            <Route path="/booking/:bookingId" component={BookingDetails}/>
+            <Route path="/new-user" component={NewUser}/>
+            <Route path="/new-shop" component={NewShop}/>
+            <Route path="/new-category" component={NewCategory}/>
+            <Route path="/new-service" component={NewService}/>
+            <Route path="/new-booking" component={NewBooking}/>
+            <Route path="/basket" component={Basket}/>
+            
+            
+          </Switch>
+        <Footer/> 
+      </Router>
     </AppStyle>
 
 
