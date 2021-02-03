@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -73,6 +74,8 @@ public class Category {
         this.name = name;
         this.description = description;
         this.image = image;
+        this.shops = new ArrayList<Shop>();
+        this.services = new ArrayList<Service>();
     }
 
     public Long getId() {
@@ -105,5 +108,21 @@ public class Category {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public List<Shop> getShops() {
+        return shops;
+    }
+
+    public void setShops(List<Shop> shops) {
+        this.shops = shops;
+    }
+
+    public List<Service> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Service> services) {
+        this.services = services;
     }
 }
