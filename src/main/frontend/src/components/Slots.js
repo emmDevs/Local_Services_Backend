@@ -27,7 +27,7 @@ function Slots() {
                 ? slotList.map((slot, index) => {
                 return(
                     <div key={index}>
-                    <Link to={`/slot/${slot.id}`}><button>{slot.startTime} - {slot.endTime}</button></Link>
+                    <Link to={`/slot/${slot.id}`}><button>{slot.startTime} - {slot.endTime}: {slot.service.name}</button></Link>
                     </div>
                 );
                 })

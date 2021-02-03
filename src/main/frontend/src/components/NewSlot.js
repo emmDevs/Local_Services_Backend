@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from 'axios';
 
 function NewSlot() {
@@ -9,7 +9,7 @@ function NewSlot() {
     const getServiceList = () => {
         axios.get(`http://localhost:8080/services/`)
             .then(res => {
-            console.log(res);
+            // console.log(res);
             setServiceList(res.data)
             });
         };
@@ -45,6 +45,7 @@ function NewSlot() {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        console.log(evt);
         onFormSubmit(formData);
     }
 
@@ -63,10 +64,7 @@ function NewSlot() {
         <div>
             <h3>Create New Time Slot</h3>
             <form onSubmit={handleSubmit}>
-                <select name="service" onChange={handleService} defaultValue="select-service">
-                    <option disabled value="select-service">Select a Service</option>
-                    {serviceOptions}
-                </select>
+                
                 <div className="form_wrap">
                     <label htmlFor="startTime">Start Time:</label>
                     <input 
@@ -88,11 +86,16 @@ function NewSlot() {
                     value={formData.endTime}
                     required/>
                 </div>
+
+                <select name="service" onChange={handleService} defaultValue="select-service">
+                    <option disabled value="select-service">Select a Service</option>
+                    {serviceOptions}
+                </select>
+
                 <button type="submit">Submit</button>
             </form>
         </div>
     )
-    
 }
 
 export default NewSlot;
