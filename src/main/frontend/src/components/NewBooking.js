@@ -69,23 +69,23 @@ function NewBooking() {
         <div>
             <h3>Create new booking</h3>
             <p>Select user</p>
-    <form onSubmit={handleSubmit}>
-        <select name="user" onChange={handleUser} defaultValue="select-user">
-            <option disabled value='select-user'>Select a user</option>
-            {userOptions}
-        </select>
-        <p></p>
-    <label htmlFor="comments">Comments:</label><p></p>
-        <input 
-        onChange={handleChange}
-        type="text"
-        name="comments"
-        id="name"
-        placeholder=""
-        value={formData.comments}
-        required/><p></p>
-        <button type="submit">Submit</button>
-    </form>
+            <form onSubmit={handleSubmit}>
+                <select name="user" onChange={handleUser} defaultValue="select-user">
+                    <option disabled value='select-user'>Select a user</option>
+                    {userOptions}
+                </select>
+                <p></p>
+            <label htmlFor="comments">Comments:</label><p></p>
+                <input 
+                onChange={handleChange}
+                type="text"
+                name="comments"
+                id="name"
+                placeholder=""
+                value={formData.comments}
+                required/><p></p>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     )
 }
