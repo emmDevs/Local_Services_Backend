@@ -43,7 +43,7 @@ public class DataLoader implements ApplicationRunner {
         Category category2 = new Category("Beauty", "Pamper yourself", "https://pixabay.com/illustrations/massage-este-relax-relaxation-spa-1237913/");
         categoryRepository.save(category2);
 
-        Shop shop1 = new Shop("Claire the Cobbler", "123 High Street", "EH42 1FA", "Dunbar", LocalTime.parse("09:00"), LocalTime.parse("17:00"), "01314761234", "claire@thecobblers.co.uk", "https://www.istockphoto.com/photo/craftsman-repairing-or-making-a-pair-of-shoes-gm1172791191-325501452?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&referrer_url=https%3A//pixabay.com/images/search/cobblers/&utm_term=cobblers");
+        Shop shop1 = new Shop("Claire the Cobbler", "123 High Street", "EH42 1FA", "Dunbar", LocalTime.parse("09:00"), LocalTime.parse("17:00"), "01314761234", "claire@thecobblers.co.uk", "http://localhost:8080/src/main/resources/static/images/cobbler.jpg");
         shopRepository.save(shop1);
 
         Shop shop2 = new Shop("Beauty from Above", "56 Market Street", "EH3 6HR", "Edinburgh", LocalTime.parse("10:00"), LocalTime.parse("18:00"), "01314761234", "beauty@theshop.com", "https://pixabay.com/photos/spa-salon-resort-oil-massage-2608450/");
