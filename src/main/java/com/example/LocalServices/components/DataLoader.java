@@ -37,17 +37,47 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args){
 
-        Category category1 = new Category("Repair", "Damaged items can be mended", "https://pixabay.com/photos/shoemaking-shoe-shoemaker-human-3611509/");
+        Category category1 = new Category("Repair", "Damaged items can be mended", "http://localhost:8080/repairCategory.jpg");
         categoryRepository.save(category1);
 
-        Category category2 = new Category("Beauty", "Pamper yourself", "https://pixabay.com/illustrations/massage-este-relax-relaxation-spa-1237913/");
+        Category category2 = new Category("Beauty", "Pamper yourself", "http://localhost:8080/beautyCategory.jpeg");
         categoryRepository.save(category2);
 
-        Shop shop1 = new Shop("Claire the Cobbler", "123 High Street", "EH42 1FA", "Dunbar", LocalTime.parse("09:00"), LocalTime.parse("17:00"), "01314761234", "claire@thecobblers.co.uk", "https://www.istockphoto.com/photo/craftsman-repairing-or-making-a-pair-of-shoes-gm1172791191-325501452?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&referrer_url=https%3A//pixabay.com/images/search/cobblers/&utm_term=cobblers");
+        Category category3 = new Category("Health and Wellbeing", "Look after you", "http://localhost:8080/healthAndWellbeingCategory.png");
+        categoryRepository.save(category3);
+
+        Category category4 = new Category("Art", "All things art related", "http://localhost:8080/artCategory.jpg");
+        categoryRepository.save(category4);
+
+        Shop shop1 = new Shop("Claire the Cobbler", "123 High Street", "EH42 1FA", "Dunbar", LocalTime.parse("09:00"), LocalTime.parse("17:00"), "01314761234", "claire@thecobblers.co.uk", "http://localhost:8080/cobbler.jpg");
         shopRepository.save(shop1);
 
-        Shop shop2 = new Shop("Beauty from Above", "56 Market Street", "EH3 6HR", "Edinburgh", LocalTime.parse("10:00"), LocalTime.parse("18:00"), "01314761234", "beauty@theshop.com", "https://pixabay.com/photos/spa-salon-resort-oil-massage-2608450/");
+        Shop shop2 = new Shop("The Beauty Room", "56 Market Street", "EH3 6HR", "Edinburgh", LocalTime.parse("10:00"), LocalTime.parse("18:00"), "01314761234", "beauty@theshop.com", "http://localhost:8080/beautician.jpg");
         shopRepository.save(shop2);
+
+        Shop shop3 = new Shop("The Kinsman", "12 Church Street", "EH3 6HR", "Edinburgh", LocalTime.parse("10:00"), LocalTime.parse("16:00"), "0013686523778", "info@KinsmanBarbers.com", "http://localhost:8080/barbers.jpg");
+        shopRepository.save(shop3);
+
+        Shop shop4 = new Shop("PedalWorks", "38 Quayside", "EH12 5RD", "Edinburgh", LocalTime.parse("08:00"), LocalTime.parse("17:00"), "01319823716", "hello@pedalworks.com", "http://localhost:8080/bikeshop.jpeg");
+        shopRepository.save(shop4);
+
+        Shop shop5 = new Shop("Star Dry Cleaners & Alterations", "38 Church Street", "EH3 6HR", "Edinburgh", LocalTime.parse("08:00"), LocalTime.parse("17:00"), "01316665242", "StarDryCleaners@gmail.com", "http://localhost:8080/drycleaners.jpeg");
+        shopRepository.save(shop5);
+
+        Shop shop6 = new Shop("Noa Nailbar & Lounge", "27 West Road", "EH45 6RE", "Edinburgh", LocalTime.parse("08:00"), LocalTime.parse("17:00"), "01316784356", "NoaNailBar@yahoo.com", "http://localhost:8080/nailbar.jpg");
+        shopRepository.save(shop6);
+
+        Shop shop7 = new Shop("Pete's Personal Training", "5 Beach Lane", "EH42 1FA", "Dunbar", LocalTime.parse("08:00"), LocalTime.parse("17:00"), "01368876445", "Petethepersonaltrainer@gmail.com", "http://localhost:8080/personalTrainer.jpeg");
+        shopRepository.save(shop7);
+
+        Shop shop8 = new Shop("Wallspace", "2 Quayside", "EH12 5RD",  "Dunbar", LocalTime.parse("08:00"), LocalTime.parse("17:00"), "01318923455", "info@wallspace.co.uk", "http://localhost:8080/pictureFramer.jpeg");
+        shopRepository.save(shop8);
+
+        Shop shop9 = new Shop("True Love", "75 High Street", "EH32 6TG",  "Dunbar", LocalTime.parse("08:00"), LocalTime.parse("17:00"), "01368733458", "tattoo@truelove.co.uk", "http://localhost:8080/tattooParlour.jpeg");
+        shopRepository.save(shop9);
+
+        Shop shop10 = new Shop("Klaire's Kundalini Space", "7 Beach Lane", "EH42 1FA",  "Dunbar", LocalTime.parse("08:00"), LocalTime.parse("17:00"), "07993436271", "kundaliniklaire@gmail.com", "http://localhost:8080/yogaStudio.jpeg");
+        shopRepository.save(shop10);
 
         Service service1 = new Service("Shoe Repair", "one pair of shoes reheeled and resoled", 9.99, 60, shop1);
         serviceRepository.save(service1);
@@ -117,6 +147,34 @@ public class DataLoader implements ApplicationRunner {
         shop2.addService(service3);
         shop2.addCategory(category2);
         shopRepository.save(shop2);
+
+        shop3.addCategory(category2);
+        shop3.addCategory(category3);
+        shopRepository.save(shop3);
+
+        shop4.addCategory(category1);
+        shopRepository.save(shop4);
+
+        shop5.addCategory(category1);
+        shopRepository.save(shop5);
+
+        shop6.addCategory(category2);
+        shop6.addCategory(category3);
+        shopRepository.save(shop6);
+
+        shop7.addCategory(category3);
+        shopRepository.save(shop7);
+
+        shop8.addCategory(category1);
+        shop8.addCategory(category4);
+        shopRepository.save(shop8);
+
+        shop9.addCategory(category2);
+        shop9.addCategory(category4);
+        shopRepository.save(shop9);
+
+        shop10.addCategory(category3);
+        shopRepository.save(shop10);
 
         service1.addSlots(slot1);
         service1.addSlots(slot2);
