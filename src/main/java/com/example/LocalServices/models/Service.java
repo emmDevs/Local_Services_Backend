@@ -58,26 +58,31 @@ public class Service {
     @JsonIgnoreProperties({"service"})
     private List<Slot> slots;
 
-    @ManyToMany
-    @JsonIgnoreProperties({"service"})
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            joinColumns = {
-                    @JoinColumn(
-                            name="service_id",
-                            nullable = false,
-                            updatable = false
-                    )
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(
-                            name = "shop_id",
-                            nullable = false,
-                            updatable = false
-                    )
-            }
-    )
-    private List<Shop> shops;
+    @ManyToOne
+    @JoinColumn(name="shop_id", nullable = false)
+    @JsonIgnoreProperties({"services"})
+    private Shop shop;
+
+//    @ManyToMany
+//    @JsonIgnoreProperties({"service"})
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    @JoinTable(
+//            joinColumns = {
+//                    @JoinColumn(
+//                            name="service_id",
+//                            nullable = false,
+//                            updatable = false
+//                    )
+//            },
+//            inverseJoinColumns = {
+//                    @JoinColumn(
+//                            name = "shop_id",
+//                            nullable = false,
+//                            updatable = false
+//                    )
+//            }
+//    )
+//    private List<Shop> shops;
 
     public Service(){
 
@@ -91,7 +96,7 @@ public class Service {
         this.categories = new ArrayList<Category>();
         this.slots = new ArrayList<Slot>();
         this.bookings = new ArrayList<Booking>();
-        this.shops = new ArrayList<Shop>();
+        this.shop = shop;
     }
 
     public Long getId() {
@@ -171,11 +176,11 @@ public class Service {
     }
 
 
-    public List<Shop> getShops() {
-        return shops;
+    public Shop getShop() {
+        return shop;
     }
 
-    public void setShops(List<Shop> shops) {
-        this.shops = shops;
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }

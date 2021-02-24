@@ -194,22 +194,22 @@ public class DataLoader implements ApplicationRunner {
         service3.addSlots(slot12);
         serviceRepository.save(service3);
 
-        booking1.addService(service1);
-        bookingRepository.save(booking1);
-
-        booking2.addService(service2);
-        booking2.addService(service3);
-        bookingRepository.save(booking2);
-
-        booking3.addService(service3);
-        bookingRepository.save(booking3);
-
-        user1.addBooking(booking1);
-        user1.addBooking(booking3);
-        userRepository.save(user1);
-
-        user2.addBooking(booking2);
-        userRepository.save(user2);
+//        booking1.addService(service1);
+//        bookingRepository.save(booking1);
+//
+//        booking2.addService(service2);
+//        booking2.addService(service3);
+//        bookingRepository.save(booking2);
+//
+//        booking3.addService(service3);
+//        bookingRepository.save(booking3);
+//
+//        user1.addBooking(booking1);
+//        user1.addBooking(booking3);
+//        userRepository.save(user1);
+//
+//        user2.addBooking(booking2);
+//        userRepository.save(user2);
 
 
 

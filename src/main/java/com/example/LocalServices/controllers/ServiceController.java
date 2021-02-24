@@ -62,7 +62,7 @@ public class ServiceController {
         serviceToUpdate.setCategories(service.getCategories());
         serviceToUpdate.setSlots(service.getSlots());
         serviceToUpdate.setBookings(service.getBookings());
-        serviceToUpdate.setShops(service.getShops());
+        serviceToUpdate.setShop(service.getShop());
         serviceRepository.save(serviceToUpdate);
         return new ResponseEntity<>(serviceToUpdate, HttpStatus.OK);
     }
