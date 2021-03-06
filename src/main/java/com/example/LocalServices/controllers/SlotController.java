@@ -57,6 +57,7 @@ public class SlotController {
         Slot slotToUpdate = slotRepository.findById(id).get();
         slotToUpdate.setStartTime(slot.getStartTime());
         slotToUpdate.setEndTime(slot.getEndTime());
+        slotToUpdate.setService(slot.getService());
         slotRepository.save(slotToUpdate);
         return new ResponseEntity<>(slotToUpdate, HttpStatus.OK);
     }

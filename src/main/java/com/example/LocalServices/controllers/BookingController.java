@@ -77,6 +77,8 @@ public class BookingController {
         bookingToUpdate.setArrival_time(booking.getArrival_time());
         bookingToUpdate.setDeparture_time(booking.getDeparture_time());
         bookingToUpdate.setComments(booking.getComments());
+        bookingToUpdate.setUser(booking.getUser());
+        bookingToUpdate.setService(booking.getService());
         bookingRepository.save(bookingToUpdate);
         return new ResponseEntity<>(bookingToUpdate, HttpStatus.OK);
     }

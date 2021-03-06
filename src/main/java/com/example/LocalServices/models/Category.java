@@ -24,10 +24,11 @@ public class Category {
     @Column(name = "image")
     private String image;
 
-    @ManyToMany
     @JsonIgnoreProperties({"categories"})
+    @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinTable(
+            name = "category_shops",
             joinColumns = {
                     @JoinColumn(
                             name="category_id",
@@ -45,10 +46,11 @@ public class Category {
     )
     private List<Shop> shops;
 
-    @ManyToMany
     @JsonIgnoreProperties({"categories"})
+    @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinTable(
+            name = "category_services",
             joinColumns = {
                     @JoinColumn(
                             name="category_id",

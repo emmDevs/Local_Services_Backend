@@ -58,7 +58,7 @@ public class UserController {
         userToUpdate.setFirstName(user.getFirstName());
         userToUpdate.setLastName(user.getLastName());
         userToUpdate.setAge(user.getAge());
-        userToUpdate.setAccess(user.getAccess());
+        userToUpdate.setAddress(user.getAddress());
         userToUpdate.setPostcode(user.getPostcode());
         userToUpdate.setTown(user.getTown());
         userToUpdate.setTelephoneNumber(user.getTelephoneNumber());

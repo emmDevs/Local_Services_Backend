@@ -53,11 +53,13 @@ public class CategoryController {
     }
 
     @PutMapping(value = "/categories/{id}")
-    public ResponseEntity<Category> updateCatagory(@RequestBody Category category, @PathVariable Long id){
+    public ResponseEntity<Category> updateCategory(@RequestBody Category category, @PathVariable Long id){
         Category categoryToUpdate = categoryRepository.findById(id).get();
         categoryToUpdate.setName(category.getName());
         categoryToUpdate.setDescription(category.getDescription());
         categoryToUpdate.setImage(category.getImage());
+        categoryToUpdate.setShops(category.getShops());
+        categoryToUpdate.setServices(category.getServices());
         categoryRepository.save(categoryToUpdate);
         return new ResponseEntity<>(categoryToUpdate, HttpStatus.OK);
     }

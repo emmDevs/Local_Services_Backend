@@ -46,11 +46,11 @@ public class Shop {
     private String image;
 
 
+    @JsonIgnoreProperties({"shops"})
     @ManyToMany
-    @JsonIgnoreProperties({"shop"})
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
-            name = "shops_categories",
+            name = "shop_categories",
             joinColumns = {
                     @JoinColumn(
                             name="shop_id",
@@ -68,11 +68,11 @@ public class Shop {
     )
     private List<Category> categories;
 
+    @JsonIgnoreProperties({"shops"})
     @ManyToMany
-    @JsonIgnoreProperties({"shop"})
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
-            name = "shops_services",
+            name = "shop_services",
             joinColumns = {
                     @JoinColumn(
                             name="shop_id",

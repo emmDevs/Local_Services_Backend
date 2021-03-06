@@ -23,9 +23,9 @@ public class Slot {
 
 
 
+    @JsonIgnoreProperties({"slots"})
     @ManyToOne
     @JoinColumn(name="service_id", nullable = false)
-    @JsonIgnoreProperties({"slots"})
     private Service service;
 
     public Slot(){

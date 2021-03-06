@@ -27,15 +27,15 @@ public class Service {
     @Column(name="duration")
     private int duration;
 
-    @OneToMany(cascade =CascadeType.ALL, mappedBy = "services")
-    @JsonIgnoreProperties({"services"})
+    @JsonIgnoreProperties({"service"})
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="service")
     private List<Booking> bookings;
 
-    @ManyToMany
     @JsonIgnoreProperties({"services"})
+    @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinTable(
-            name = "services_categories",
+            name = "service_categories",
             joinColumns = {
                     @JoinColumn(
                             name="service_id",
@@ -54,14 +54,15 @@ public class Service {
     private List<Category> categories;
 
 
-    @OneToMany(cascade =CascadeType.ALL, mappedBy = "service")
     @JsonIgnoreProperties({"service"})
+    @OneToMany(cascade =CascadeType.ALL, mappedBy = "service")
     private List<Slot> slots;
 
+    @JsonIgnoreProperties({"services"})
     @ManyToMany
-    @JsonIgnoreProperties({"service"})
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
+            name = "service_shops",
             joinColumns = {
                     @JoinColumn(
                             name="service_id",
@@ -83,7 +84,7 @@ public class Service {
 
     }
 
-    public Service(String name, String description, double price, int duration, Shop shop){
+    public Service(String name, String description, double price, int duration){
         this.name = name;
         this.description = description;
         this.price = price;
