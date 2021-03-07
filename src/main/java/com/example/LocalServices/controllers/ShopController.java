@@ -80,19 +80,11 @@ public class ShopController {
         return new ResponseEntity(shopRepository.findById(id), HttpStatus.OK);
     }
 
-//    @GetMapping(value = "/shops/{id}/categories")
-//    public
-
     @PostMapping("/shops")
     public ResponseEntity<Shop> postShop(@RequestBody Shop shop){
         shopRepository.save(shop);
         return new ResponseEntity<>(shop, HttpStatus.CREATED);
     }
-
-//    @PostMapping("/shops/{id}/categories")
-//    public ResponseEntity<Category> postCategory(@RequestBody Category category, @PathVariable Long id){
-//        shopRepository
-//    }
 
     @DeleteMapping(value="/shops/{id}")
     public ResponseEntity<Long> deleteShop(@PathVariable Long id){
@@ -118,17 +110,42 @@ public class ShopController {
         return new ResponseEntity<>(shopToUpdate, HttpStatus.OK);
     }
 
-
+//    PATCH /shops/{id}?address=name
+//    PATCH /shops/{id}?hours=name
 //    PATCH /shops/{id}?category=
 //    PATCH /shops/{id}?service=
 
     @PatchMapping(value = "/shops/{id}")
     public ResponseEntity<Shop> patchShopCategory(
             @PathVariable Long id,
+            @RequestBody(required = false) Shop shop,
+            @RequestParam(required = false, name = "address") String address,
+            @RequestParam(required = false, name = "hours") String hours,
+            @RequestParam(required = false, name = "phone") String phone,
+            @RequestParam(required = false, name = "email") String email,
             @RequestParam(required = false, name = "category") Long categoryId,
             @RequestParam(required = false, name = "service") Long serviceId
     ){
         Shop shopToPatch = shopRepository.findById(id).get();
+
+        if(address != null && shop != null){
+            shopToPatch.setAddress(shop.getAddress());
+            shopToPatch.setPostcode(shop.getPostcode());
+            shopToPatch.setTown(shop.getTown());
+        }
+
+        if(hours != null && shop != null){
+            shopToPatch.setOpeningHour(shop.getOpeningHour());
+            shopToPatch.setClosingHour(shop.getClosingHour());
+        }
+
+        if(phone != null && shop != null){
+            shopToPatch.setTelephoneNumber(shop.getTelephoneNumber());
+        }
+
+        if(email != null && shop != null){
+            shopToPatch.setEmail(shop.getEmail());
+        }
 
         if(categoryId != null){
             Category category = categoryRepository.findById(categoryId).get();
